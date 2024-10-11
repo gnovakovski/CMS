@@ -19,45 +19,6 @@ export class ViagensComponent implements OnInit {
 
   }
 
-  public cards: any[] = [
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
-
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
-
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
-
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
-
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
-
-
-  ];
-
   getViagens(){
     this.service.getCollectionData('viagens').subscribe((data) => {
 

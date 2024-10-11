@@ -14,6 +14,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { CadastrarViagemComponent } from './viagens/cadastrar-viagem/cadastrar-viagem.component';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { QuillModule } from 'ngx-quill';
+import { ClientesComponent } from './clientes/clientes.component';
+import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastrar-cliente.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { QuillModule } from 'ngx-quill';
       ViagensComponent,
       HeaderComponent,
       CadastrarViagemComponent,
+      ClientesComponent,
+      CadastrarClienteComponent
    ],
   imports: [
     BrowserModule,
