@@ -23,7 +23,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'cadastrar-viagem',
+    path: 'viagens/cadastrar-viagem',
     component: CadastrarViagemComponent
   },
 

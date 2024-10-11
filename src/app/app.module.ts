@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { CadastrarViagemComponent } from './viagens/cadastrar-viagem/cadastrar-viagem.component';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    QuillModule.forRoot()
   ],
   providers: [
 

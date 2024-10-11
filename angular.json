@@ -36,6 +36,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "node_modules/quill/dist/quill.snow.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
@@ -95,6 +96,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/quill/dist/quill.snow.css",
               "src/styles.css"
             ],
             "scripts": []

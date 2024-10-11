@@ -1,3 +1,98 @@
-<p>
-  cadastrar-viagem works!
-</p>
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Cadastrar Viagem
+</div>
+
+<div class="content-cadastro">
+  <div class="content-form-cadastro">
+    <div class="content-inputs">
+
+      <div class="input-label">
+        <label for="">Título</label>
+        <input type="text">
+      </div>
+
+      <div class="input-label">
+        <label for="">Vagas</label>
+        <input type="number">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Data de ida</label>
+        <input type="date">
+      </div>
+
+      <div class="input-label">
+        <label for="">Data de retorno</label>
+        <input type="date">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Whats do parceiro</label>
+        <input type="text">
+      </div>
+
+      <div class="input-label">
+        <label for="">Valor da parcela</label>
+        <input type="text">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Parcelamento</label>
+        <input type="text">
+      </div>
+
+      <div class="input-label">
+        <label for="">Preço</label>
+        <input type="text">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Roteiro</label>
+        <quill-editor [styles]="{height: '250px'}" style="background-color: black; border-radius: 10px !important;" [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Sobre o destino</label>
+        <quill-editor [styles]="{height: '250px'}" style="background-color: black;" [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Serviços</label>
+        <quill-editor [styles]="{height: '250px'}" style="background-color: black;" [(ngModel)]="content" [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Passeios opcionais</label>
+        <quill-editor [styles]="{height: '250px'}" style="background-color: black;" [(ngModel)]="content" [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">O que levar?</label>
+        <quill-editor [styles]="{height: '250px'}" style="background-color: black;" [(ngModel)]="content" [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Documentos</label>
+        <quill-editor [styles]="{height: '250px'}" style="background-color: black;" [(ngModel)]="content" [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+  </div>
+</div>
