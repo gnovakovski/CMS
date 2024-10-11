@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div style="background-color: rgb(25, 22, 41) !important;">
+
+  <div class="container">
+
+    <div class="content-btn-filter">
+<button class="button">Cadastrar viagem</button>
+
+    </div>
+
+    <div class="row content-viagens">
+
+      <div class="content-card" *ngFor="let item of viagens">
+        <div>
+          <img src="{{item.foto}}" alt="">
+        </div>
+        <div class="box-card">
+          <h5 class="text-center mt-2">{{item.titulo}}</h5>
+          <p>{{item.data_ida}} a {{item.data_volta}}</p>
+          <p class="text-center">R$ {{item.preco}}<br>{{item.parcelamento}}</p>
+          <button>Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
