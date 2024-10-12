@@ -19,3 +19,25 @@ html, body{
 .ql-container .ql-snow{
   border-radius: 10px !important;
 }
+
+.btn-voltar{
+  width: 150px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(107, 25, 25);
+  border-radius: 5px;
+}
+
+.btn-salvar{
+  width: 150px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(41, 107, 25);
+  border-radius: 5px;
+}

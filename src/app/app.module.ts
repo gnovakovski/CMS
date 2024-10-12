@@ -16,6 +16,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { QuillModule } from 'ngx-quill';
 import { ClientesComponent } from './clientes/clientes.component';
 import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastrar-cliente.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastra
     FormsModule,
     ReactiveFormsModule,
     AngularFireStorageModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
 

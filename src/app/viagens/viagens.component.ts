@@ -11,11 +11,19 @@ export class ViagensComponent implements OnInit {
   public viagens: any
   public img: any
 
+  public loading: boolean = false
+
   constructor(private service: ServiceService) { }
 
   ngOnInit() {
 
-    this.getViagens();
+    setTimeout(() => {
+      this.getViagens();
+    }, 3000);
+
+    setTimeout(() => {
+      this.loading = true
+    }, 3700);
 
   }
 
@@ -31,7 +39,7 @@ export class ViagensComponent implements OnInit {
 
       this.viagens.forEach((item: any) => {
 
-        this.service.getImageUrl(item.foto_card).subscribe((url) => {
+        this.service.getImageUrl(item.foto1).subscribe((url) => {
 
           item.foto = url;
 

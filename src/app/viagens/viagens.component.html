@@ -2,10 +2,34 @@
 
 <div style="background-color: rgb(25, 22, 41) !important;">
 
-  <div class="container">
+<div class="loader" *ngIf="!loading">
+  <div class="loading-text">
+    Loading<span class="dot">.</span><span class="dot">.</span
+    ><span class="dot">.</span>
+  </div>
+  <div class="loading-bar-background">
+    <div class="loading-bar">
+      <div class="white-bars-container">
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container" *ngIf="loading">
 
     <div class="content-btn-filter">
-<button class="button" routerLink="cadastrar-viagem">Cadastrar viagem</button>
+    <button class="button" routerLink="cadastrar-viagem">Cadastrar viagem</button>
 
     </div>
 
@@ -13,7 +37,7 @@
 
       <div class="content-card" *ngFor="let item of viagens">
         <div>
-          <img src="{{item.foto}}" alt="">
+          <img src="{{item.foto}}" style="height: 170px; width: 246px;">
         </div>
         <div class="box-card">
           <h5 class="text-center mt-2">{{item.titulo}}</h5>
