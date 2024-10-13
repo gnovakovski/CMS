@@ -18,6 +18,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastrar-cliente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { EditarViagemComponent } from './viagens/editar-viagem/editar-viagem.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
       HeaderComponent,
       CadastrarViagemComponent,
       ClientesComponent,
-      CadastrarClienteComponent
+      CadastrarClienteComponent,
+      EditarViagemComponent
    ],
   imports: [
     BrowserModule,

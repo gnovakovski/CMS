@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { ViagensComponent } from './viagens/viagens.component';
 import { CadastrarViagemComponent } from './viagens/cadastrar-viagem/cadastrar-viagem.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { EditarViagemComponent } from './viagens/editar-viagem/editar-viagem.component';
 
 const routes: Routes = [
 
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'viagens/cadastrar-viagem',
     component: CadastrarViagemComponent
+  },
+
+  {
+    path: 'viagens/editar-viagem/:id',
+    component: EditarViagemComponent
   },
 
 ];

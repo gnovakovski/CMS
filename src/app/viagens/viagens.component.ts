@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-viagens',
