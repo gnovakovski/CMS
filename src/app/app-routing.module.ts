@@ -6,6 +6,9 @@ import { CadastrarViagemComponent } from './viagens/cadastrar-viagem/cadastrar-v
 import { ClientesComponent } from './clientes/clientes.component';
 import { EditarViagemComponent } from './viagens/editar-viagem/editar-viagem.component';
 import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastrar-cliente.component';
+import { VendasComponent } from './vendas/vendas.component';
+import { CadastrarVendaComponent } from './vendas/cadastrar-venda/cadastrar-venda.component';
+import { EditarVendaComponent } from './vendas/editar-venda/editar-venda.component';
 
 const routes: Routes = [
 
@@ -28,6 +31,21 @@ const routes: Routes = [
   {
     path: 'clientes',
     component: ClientesComponent
+  },
+
+  {
+    path: 'vendas',
+    component: VendasComponent
+  },
+
+  {
+    path: 'vendas/cadastrar-venda',
+    component: CadastrarVendaComponent
+  },
+
+  {
+    path: 'vendas/editar-venda/:id',
+    component: EditarVendaComponent
   },
 
   {

@@ -19,6 +19,10 @@ import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastra
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { EditarViagemComponent } from './viagens/editar-viagem/editar-viagem.component';
+import { VendasComponent } from './vendas/vendas.component';
+import { CadastrarVendaComponent } from './vendas/cadastrar-venda/cadastrar-venda.component';
+import { EditarVendaComponent } from './vendas/editar-venda/editar-venda.component';
+import { MoneyMaskDirective } from './money-mask.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { EditarViagemComponent } from './viagens/editar-viagem/editar-viagem.com
       CadastrarViagemComponent,
       ClientesComponent,
       CadastrarClienteComponent,
-      EditarViagemComponent
+      EditarViagemComponent,
+      VendasComponent,
+      CadastrarVendaComponent,
+      EditarVendaComponent,
+      MoneyMaskDirective
    ],
   imports: [
     BrowserModule,

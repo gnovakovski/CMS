@@ -204,7 +204,7 @@ export class EditarViagemComponent implements OnInit {
        })
        .catch((error) => {
          this.toastr.error(error, 'Erro');
-         console.error('Erro ao enviar put imagem:', error);
+         console.error('Erro ao Salvar put imagem:', error);
        });
   }
 
@@ -336,7 +336,7 @@ export class EditarViagemComponent implements OnInit {
       this.service.uploadImage(file, fileName).subscribe((downloadUrl) => {
         console.log('Imagem enviada com sucesso! URL:', downloadUrl);
       }, error => {
-        console.error('Erro ao enviar imagem:', error);
+        console.error('Erro ao Salvar imagem:', error);
       });
     }
   }

@@ -72,4 +72,8 @@ export class ServiceService {
     const fileRef = this.fireStorage.ref(nomeArquivo);
     return fileRef.delete().toPromise();
   }
+
+  delete(id: string, collection: any): Promise<void> {
+    return this.firestore.collection(collection).doc(id).delete();
+  }
 }

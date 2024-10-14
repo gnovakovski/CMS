@@ -237,7 +237,7 @@ export class CadastrarViagemComponent implements OnInit {
       this.service.uploadImage(file, fileName).subscribe((downloadUrl) => {
         console.log('Imagem enviada com sucesso! URL:', downloadUrl);
       }, error => {
-        console.error('Erro ao enviar imagem:', error);
+        console.error('Erro ao Salvar imagem:', error);
       });
     }
   }
