@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ViagensComponent } from './viagens/viagens.component';
+import { EmbarqueComponent } from './embarque/embarque.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environments';
@@ -18,6 +19,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastrar-cliente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ComponentNameComponent } from './component-name/component-name.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ToastrModule } from 'ngx-toastr';
       HeaderComponent,
       CadastrarViagemComponent,
       ClientesComponent,
-      CadastrarClienteComponent
+      CadastrarClienteComponent,
+      ComponentNameComponent,
+      EmbarqueComponent
    ],
   imports: [
     BrowserModule,

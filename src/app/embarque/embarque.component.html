@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<div style="background-color: rgb(25, 22, 41) !important;">
+
+<div class="loader" *ngIf="!loading">
+  <div class="loading-text">
+    Loading<span class="dot">.</span><span class="dot">.</span
+    ><span class="dot">.</span>
+  </div>
+  <div class="loading-bar-background">
+    <div class="loading-bar">
+      <div class="white-bars-container">
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container" *ngIf="loading">
+
+    <div class="content-btn-filter">
+    <button class="button" routerLink="cadastrar-embarque">Cadastrar embarque</button>
+
+    </div>
+
+    <div class="row content-viagens">
+
+      <div class="content-card" *ngFor="let item of embarque">
+        <div>
+          <img src="{{item.foto}}" style="height: 170px; width: 246px;">
+        </div>
+        <div class="box-card">
+          <h5 class="text-center mt-2">{{item.titulo}}</h5>
+          <p>{{item.data_ida}} a {{item.data_volta}}</p>
+          <p class="text-center">R$ {{item.preco}}<br>{{item.parcelamento}}</p>
+          <button>Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
