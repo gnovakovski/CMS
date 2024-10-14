@@ -1,114 +1,113 @@
 <app-header></app-header>
 
 <div class="title-cadastro">
-  Cadastrar Viagem
+  Cadastrar Cliente
 </div>
 
 
-<form>
+<form [formGroup]="form">
 <div class="content-cadastro">
   <div class="content-form-cadastro">
-    <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 20px; gap: 10px; margin-bottom: 20px;">
-      <div style="display: flex; align-items: center; gap: 10px ;">
-        <label class="switch">
-          <input formControlName="ativo" type="checkbox">
-          <span class="slider"></span>
-        </label>
-        <label for="">ativar?</label>
-      </div>
-    </div>
+
     <div class="content-inputs">
 
       <div class="input-label">
-        <label for="">Título</label>
-        <input type="text" formControlName="titulo">
+        <label for="">Nome</label>
+        <input type="text" formControlName="nome">
       </div>
 
       <div class="input-label">
-        <label for="">Vagas</label>
-        <input type="number" formControlName="vagas">
+        <label for="">Data de nascimento</label>
+        <input type="date" formControlName="data_nascimento">
       </div>
 
     </div>
     <div class="content-inputs mt-4">
 
       <div class="input-label">
-        <label for="">Data de ida</label>
-        <input type="date" formControlName="data_ida">
+        <label for="">E-mail</label>
+        <input type="text" formControlName="email">
       </div>
 
       <div class="input-label">
-        <label for="">Data de retorno</label>
-        <input type="date" formControlName="data_volta">
+        <label for="">RG</label>
+        <input appRgMask type="text" formControlName="rg">
       </div>
 
     </div>
     <div class="content-inputs mt-4">
 
       <div class="input-label">
-        <label for="">Whats do parceiro</label>
-        <input type="text" formControlName="whats_parceiro">
+        <label for="">Telefone</label>
+        <input appPhoneMask type="text" formControlName="telefone">
       </div>
 
       <div class="input-label">
-        <label for="">Tipo de negócio</label>
-        <select formControlName="tipo_negocio">
-          <option value="">Selecione uma opção</option>
-          <option value="Final de Semana">Final de Semana</option>
-          <option value="Bate e Volta ">Bate e Volta </option>
-          <option value="Aéreo">Aéreo</option>
-          <option value="Rodoviário">Rodoviário</option>
-          <option value="Religioso">Religioso</option>
-        </select>
+        <label for="">CPF</label>
+        <input appCpfMask type="text" formControlName="cpf">
       </div>
 
     </div>
     <div class="content-inputs mt-4">
 
       <div class="input-label">
-        <label for="">Valor da parcela</label>
-        <input type="text" formControlName="valor_parcela">
+        <label for="">CEP</label>
+        <input (keyup)="getCep()" appCepMask type="text" formControlName="cep">
       </div>
 
+
       <div class="input-label">
-        <label for="">Taxa administrativa</label>
-        <input type="text" formControlName="taxa_adm">
+        <label for="">Endereço</label>
+        <input type="text" formControlName="endereco">
       </div>
     </div>
-    <div class="content-inputs mt-4">
-      <div class="input-label">
-        <label for="">Fornecedor</label>
-        <select formControlName="fornecedor">
-          <option value="">Selecione uma opção</option>
-          <option value="Laghetto">Laghetto</option>
-          <option value="Ibis Hotel">Ibis Hotel</option>
 
-        </select>
-      </div>
-
-      <div class="input-label">
-        <label for="">Markup</label>
-        <input type="text" formControlName="markup">
-      </div>
-    </div>
     <div class="content-inputs mt-4">
 
       <div class="input-label">
-        <label for="">Parcelamento</label>
-        <input type="text" formControlName="parcelamento">
+        <label for="">Número</label>
+        <input type="number" formControlName="numero">
       </div>
+
 
       <div class="input-label">
-        <label for="">Preço</label>
-        <input type="text" formControlName="preco">
+        <label for="">Complemento</label>
+        <input type="text" formControlName="complemento">
+      </div>
+    </div>
+
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Bairro</label>
+        <input type="text" formControlName="bairro">
       </div>
 
+
+      <div class="input-label">
+        <label for="">Cidade</label>
+        <input type="text" formControlName="cidade">
+      </div>
+    </div>
+
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Estado</label>
+        <input type="text" formControlName="estado">
+      </div>
+
+
+      <div class="input-label" style="opacity: 0;">
+        <label for=""></label>
+        <input type="text" disabled>
+      </div>
     </div>
 
     <div class="content-inputs mt-5">
 
-      <button class="btn-voltar" >Voltar</button>
-      <button class="btn-salvar" >Salvar</button>
+      <button class="btn-voltar" (click)="voltar()">Voltar</button>
+      <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
 
     </div>
 

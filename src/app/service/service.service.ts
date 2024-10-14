@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize, map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
 
-  constructor(private afAuth: AngularFireAuth, private firestore: AngularFirestore, private fireStorage: AngularFireStorage) { }
+  constructor(private http: HttpClient, private afAuth: AngularFireAuth, private firestore: AngularFirestore, private fireStorage: AngularFireStorage) { }
 
   login(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password);
@@ -75,5 +76,11 @@ export class ServiceService {
 
   delete(id: string, collection: any): Promise<void> {
     return this.firestore.collection(collection).doc(id).delete();
+  }
+
+  getCep(cep: any): Observable<any> {
+
+    return this.http.get<any>(`https://viacep.com.br/ws/${cep}/json/`)
+
   }
 }

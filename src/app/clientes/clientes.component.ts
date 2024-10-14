@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from '../service/cliente.service';
+import { ServiceService } from '../service/service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-clientes',
@@ -8,17 +9,36 @@ import { ClienteService } from '../service/cliente.service';
 })
 export class ClientesComponent implements OnInit {
 
-  clientes: any[] = [];
+  public clientes: any
 
-  constructor(private clienteService: ClienteService) {}
+  constructor(private service: ServiceService, private toastr: ToastrService) {}
 
-  ngOnInit(): void {
-    this.clienteService.listarClientes().subscribe(clientes => {
-      this.clientes = clientes;
+
+  ngOnInit() {
+
+    this.getClientes();
+  }
+
+  getClientes(){
+    this.service.getCollectionData('clientes').subscribe((data) => {
+
+      this.clientes = data;
+
     });
+
   }
 
-  cadastrarCliente() {
-    // Navegar para a tela de cadastro
-  }
+  deletarCliente(id: any){
+
+    this.service.delete(id, "clientes")
+      .then((resp) => {
+
+        this.toastr.success('Cliente deletado com sucesso!', 'Deletar cliente');
+
+        this.getClientes();
+      })
+      .catch((error) => {
+        this.toastr.error(error, 'Erro');
+      });
+}
 }

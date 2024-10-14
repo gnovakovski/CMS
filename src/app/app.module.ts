@@ -22,7 +22,12 @@ import { EditarViagemComponent } from './viagens/editar-viagem/editar-viagem.com
 import { VendasComponent } from './vendas/vendas.component';
 import { CadastrarVendaComponent } from './vendas/cadastrar-venda/cadastrar-venda.component';
 import { EditarVendaComponent } from './vendas/editar-venda/editar-venda.component';
-import { MoneyMaskDirective } from './money-mask.directive';
+import { MoneyMaskDirective } from './masks/money-mask.directive';
+import { RgMaskDirective } from './masks/rg-mask.directive';
+import { PhoneMaskDirective } from './masks/phone-mask.directive';
+import { CpfMaskDirective } from './masks/cpf-mask.directive';
+import { CepMaskDirective } from './masks/cep-mask.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,11 @@ import { MoneyMaskDirective } from './money-mask.directive';
       VendasComponent,
       CadastrarVendaComponent,
       EditarVendaComponent,
-      MoneyMaskDirective
+      MoneyMaskDirective,
+      RgMaskDirective,
+      PhoneMaskDirective,
+      CpfMaskDirective,
+      CepMaskDirective
    ],
   imports: [
     BrowserModule,
@@ -51,6 +60,7 @@ import { MoneyMaskDirective } from './money-mask.directive';
     QuillModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
 

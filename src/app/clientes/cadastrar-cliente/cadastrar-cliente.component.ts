@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { ClienteService } from '../../service/cliente.service';
+import { Router } from '@angular/router';
+import { ServiceService } from '../../service/service.service';
+import { FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastrar-cliente',
@@ -7,61 +10,71 @@ import { ClienteService } from '../../service/cliente.service';
   styleUrls: ['./cadastrar-cliente.component.css']
 })
 export class CadastrarClienteComponent {
-  cliente = {
-    nome: '',
-    dataNascimento: '',
-    email: '',
-    rg: '',
-    telefone: '',
-    cpf: '',
-    cep: '',
-    endereco: '',
-    numero: '',
-    complemento: '',
-    bairro: '',
-    cidade: '',
-    estado: ''
-  };
 
-  editorConfig = {
-    toolbar: [
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      ['blockquote', 'code-block'],
+  public viagens: any
+  public form: any;
+  public clientes: any;
+  public cep: any;
 
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }],                         // text direction
+  constructor(private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
 
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  ngOnInit() {
 
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
-      [{ 'align': [] }],
+    this.form = this.formBuilder.group({
+      nome: '',
+      data_nascimento: '',
+      email: '',
+      rg: '',
+      telefone: '',
+      cpf: '',
+      cep: '',
+      endereco: '',
+      numero: '',
+      complemento: '',
+      bairro: '',
+      cidade: '',
+      estado: '',
+    });
 
-      ['clean'],                                         // remove formatting button
-
-      ['link', 'image', 'video']                         // link and image, video
-    ]
-  };
-
-  documento: File | null = null;
-
-  constructor(private clienteService: ClienteService) {}
-
-  selecionarDocumento(event: any) {
-    this.documento = event.target.files[0];
   }
 
-  cadastrar() {
-    if (this.documento) {
-      this.clienteService.post(this.cliente, this.documento, this.documento.name).then(() => {
-        alert('Cliente cadastrado com sucesso!');
-      }).catch((error) => {
-        console.error('Erro ao cadastrar cliente:', error);
+  voltar(){
+
+    this.router.navigate(['/clientes']);
+
+  }
+
+  onSubmit() {
+
+    this.service.post(this.form.value, "clientes")
+      .then((resp) => {
+        console.log(resp)
+        this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastrar cliente');
+
+
+        this.router.navigate(['/clientes']);
+      })
+      .catch((error) => {
+        this.toastr.error(error, 'Erro');
       });
-    }
   }
+
+getCep(){
+
+  let form = this.form.getRawValue();
+
+  if(form.cep.length > 8){
+    this.service.getCep(form.cep).subscribe((resp) => {
+
+      this.cep = resp;
+
+      this.form.controls['endereco'].setValue(this.cep.logradouro);
+      this.form.controls['estado'].setValue(this.cep.estado);
+      this.form.controls['cidade'].setValue(this.cep.localidade);
+      this.form.controls['bairro'].setValue(this.cep.bairro);
+
+    });
+  }
+}
 }
 
