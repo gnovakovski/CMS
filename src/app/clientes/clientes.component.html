@@ -1,3 +1,29 @@
-<p>
-  clientes works!
-</p>
+<app-header></app-header>
+
+<div style="background-color: rgb(25, 22, 41) !important;">
+<div>
+  <div class="container">
+  <h1>Lista de Clientes</h1>
+  <div class="content-btn-filter">
+    <button class="button" routerLink="cadastrar-cliente">Cadastrar Cliente</button>
+    </div>
+ 
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{ cliente.nome }}</td>
+          <td>{{ cliente.telefone }}</td>
+          <td>{{ cliente.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

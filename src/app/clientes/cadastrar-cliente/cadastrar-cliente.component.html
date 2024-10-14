@@ -1,3 +1,144 @@
-<p>
-  cadastrar-cliente works!
-</p>
+
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Cadastrar Cliente
+</div>
+
+
+  
+<form (ngSubmit)="cadastrar()">
+<div class="content-cadastro">
+  <div class="content-form-cadastro">
+    <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 20px; gap: 10px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px ;">
+        <label class="switch">
+          <input formControlName="ativo" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <label for="">ativar?</label>
+      </div>
+    </div>
+    <div class="content-inputs">
+
+      <div class="input-label">
+        <label for="">Nome</label>
+        <input type="text" formControlName="nome">
+      </div>
+
+      <div class="input-label">
+        <label for="">Data de nascimento</label>
+        <input type="date" formControlName="data_nascimento">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Email</label>
+        <input type="text" formControlName="email">
+      </div>
+
+
+      <div class="input-label">
+        <label for="">RG</label>
+        <input type="number" formControlName="rg">
+      </div>
+
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Telefone</label>
+        <input type="number" formControlName="telefone">
+      </div>
+
+      <div class="input-label">
+        <label for="">CPF</label>
+        <input type="number" formControlName="cpf">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">CEP</label>
+        <input type="text" formControlName="cep">
+      </div>
+
+      <div class="input-label">
+        <label for="">Endereço</label>
+        <input type="text" formControlName="endereço">
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Número</label>
+        <input type="number" formControlName="numero">
+      </div>
+
+      <div class="input-label">
+        <label for="">Complemento</label>
+        <input type="text" formControlName="complemento">
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Bairro</label>
+        <input type="text" formControlName="bairro">
+      </div>
+
+      <div class="input-label">
+        <label for="">Cidade</label>
+        <input type="text" formControlName="cidade">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Estado</label>
+        <input type="text" formControlName="estado">
+      </div>
+    </div>
+
+
+    <label>Anexar Documento: <input type="file" (change)="selecionarDocumento($event)" required></label>
+
+    <div class="content-inputs mt-5">
+
+      <button class="btn-voltar">Voltar</button>
+      <button type="submit">Cadastrar</button>
+
+    </div>
+
+  </div>
+</div>
+</form>
+
+
+<!-- 
+<div>
+  <h1>Cadastrar Cliente</h1>
+  
+  <form (ngSubmit)="cadastrar()">
+    <label>Nome: <input [(ngModel)]="cliente.nome" name="nome" required></label>
+    <label>Data de Nascimento: <input type="date" [(ngModel)]="cliente.dataNascimento" name="dataNascimento" required></label>
+    <label>Email: <input type="email" [(ngModel)]="cliente.email" name="email" required></label>
+    <label>RG: <input [(ngModel)]="cliente.rg" name="rg" required></label>
+    <label>Telefone: <input [(ngModel)]="cliente.telefone" name="telefone" required></label>
+    <label>CPF: <input [(ngModel)]="cliente.cpf" name="cpf" required></label>
+    <label>CEP: <input [(ngModel)]="cliente.cep" name="cep" required></label>
+    <label>Endereço: <input [(ngModel)]="cliente.endereco" name="endereco" required></label>
+    <label>Número: <input [(ngModel)]="cliente.numero" name="numero" required></label>
+    <label>Complemento: <input [(ngModel)]="cliente.complemento" name="complemento"></label>
+    <label>Bairro: <input [(ngModel)]="cliente.bairro" name="bairro" required></label>
+    <label>Cidade: <input [(ngModel)]="cliente.cidade" name="cidade" required></label>
+    <label>Estado: <input [(ngModel)]="cliente.estado" name="estado" required></label>
+
+    <label>Anexar Documento: <input type="file" (change)="selecionarDocumento($event)" required></label>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</div> -->
