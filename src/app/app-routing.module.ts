@@ -9,6 +9,7 @@ import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastra
 import { VendasComponent } from './vendas/vendas.component';
 import { CadastrarVendaComponent } from './vendas/cadastrar-venda/cadastrar-venda.component';
 import { EditarVendaComponent } from './vendas/editar-venda/editar-venda.component';
+import { EditarClienteComponent } from './clientes/cadastrar-cliente/editar-cliente/editar-cliente.component';
 
 const routes: Routes = [
 
@@ -51,6 +52,11 @@ const routes: Routes = [
   {
     path: 'clientes/cadastrar-cliente',
     component: CadastrarClienteComponent
+  },
+
+  {
+    path: 'clientes/editar-cliente/:id',
+    component: EditarClienteComponent
   },
 
   {

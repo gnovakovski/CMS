@@ -28,6 +28,7 @@ import { PhoneMaskDirective } from './masks/phone-mask.directive';
 import { CpfMaskDirective } from './masks/cpf-mask.directive';
 import { CepMaskDirective } from './masks/cep-mask.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { EditarClienteComponent } from './clientes/cadastrar-cliente/editar-cliente/editar-cliente.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
       RgMaskDirective,
       PhoneMaskDirective,
       CpfMaskDirective,
-      CepMaskDirective
+      CepMaskDirective,
+      EditarClienteComponent
    ],
   imports: [
     BrowserModule,
