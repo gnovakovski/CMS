@@ -18,9 +18,7 @@ export class ViagensComponent implements OnInit {
 
   ngOnInit() {
 
-    setTimeout(() => {
       this.getViagens();
-    }, 3000);
 
     setTimeout(() => {
       this.loading = true

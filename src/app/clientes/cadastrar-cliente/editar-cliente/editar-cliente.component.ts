@@ -3,20 +3,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../../../service/service.service';
 import { FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { take } from 'rxjs';
 
 interface Foto {
-  file: any
-  name: string
+  file: any;
+  name: string;
 }
 
 @Component({
   selector: 'app-editar-cliente',
   templateUrl: './editar-cliente.component.html',
-  styleUrls: ['./editar-cliente.component.css']
+  styleUrls: ['./editar-cliente.component.css'],
 })
 export class EditarClienteComponent implements OnInit {
-
-  public viagens: any
+  public viagens: any;
   public form: any;
   public clientes: any;
   public cep: any;
@@ -25,11 +25,17 @@ export class EditarClienteComponent implements OnInit {
   public clienteId: any;
 
   fotos: Foto[] = [];
+  initialFotos: Foto[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private service: ServiceService,
+    public formBuilder: FormBuilder,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit() {
-
     this.clienteId = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.form = this.formBuilder.group({
@@ -46,27 +52,16 @@ export class EditarClienteComponent implements OnInit {
       bairro: '',
       cidade: '',
       estado: '',
-      doc1: '',
-      doc2: '',
-      doc3: '',
-      doc4: '',
-      doc5: '',
-
     });
 
-    this.getVendaById(this.clienteId);
-
+    if (this.clienteId) {
+      this.getVendaById(this.clienteId);
+    }
   }
 
-  voltar(){
-
-    this.router.navigate(['/clientes']);
-
-  }
-
-  getVendaById(id: any){
-
-    this.service.getById(id, "clientes").subscribe(data => {
+  getVendaById(id: any) {
+    this.fotos = [];
+    this.service.getById(id, 'clientes').pipe(take(1)).subscribe((data) => {
       this.cliente = data;
 
       this.form.controls['nome'].setValue(this.cliente.nome);
@@ -83,94 +78,63 @@ export class EditarClienteComponent implements OnInit {
       this.form.controls['cidade'].setValue(this.cliente.cidade);
       this.form.controls['estado'].setValue(this.cliente.estado);
 
-      if(this.cliente.doc1 === undefined){
-        this.form.removeControl('doc1');
-      }else{
-        this.form.controls['doc1'].setValue(this.cliente.doc1);
+      Object.keys(this.cliente).forEach((key) => {
+        if (key.startsWith('doc') && this.cliente[key]) {
+          this.form.addControl(key, this.formBuilder.control(this.cliente[key]));
 
-        this.service.getImageUrl(this.cliente.doc1).subscribe((url) => {
-
-          this.fotos.push({ file: '', name: this.cliente.doc1 });
-
-
-         });
-      }
-
-      if(this.cliente.doc2 === undefined){
-        this.form.removeControl('doc2');
-      }else{
-        this.form.controls['doc2'].setValue(this.cliente.doc2);
-
-        this.service.getImageUrl(this.cliente.doc2).subscribe((url) => {
-
-          this.fotos.push({ file: '', name: this.cliente.doc2 });
-
-         });
-      }
-
-      if(this.cliente.doc3 === undefined){
-        this.form.removeControl('doc3');
-      }else{
-        this.form.controls['doc3'].setValue(this.cliente.doc3);
-
-        this.service.getImageUrl(this.cliente.doc3).subscribe((url) => {
-
-          this.fotos.push({ file: '', name: this.cliente.doc3 });
-
-         });
-      }
-
-      if(this.cliente.doc4 === undefined){
-        this.form.removeControl('doc4');
-      }else{
-        this.form.controls['doc4'].setValue(this.cliente.doc4);
-
-        this.service.getImageUrl(this.cliente.doc4).subscribe((url) => {
-
-          this.fotos.push({ file: '', name: this.cliente.doc4 });
-
-         });
-      }
-
-      if(this.cliente.doc5 === undefined){
-        this.form.removeControl('doc5');
-      }else{
-        this.form.controls['doc5'].setValue(this.cliente.doc5);
-
-        this.service.getImageUrl(this.cliente.doc5).subscribe((url) => {
-
-          this.fotos.push({ file: '', name: this.cliente.doc5 });
-
-         });
-      }
-
+          this.fotos.push({ file: '', name: this.cliente[key] });
+          this.initialFotos.push({ file: '', name: this.cliente[key] });
+        }
+      });
     });
+  }
+
+  upload(file: any, name: any): void {
+    if (file) {
+      const fileName = name;
+      this.service.uploadImage(file, fileName).subscribe(
+        (downloadUrl) => {
+          console.log('Imagem enviada com sucesso! URL:', downloadUrl);
+        },
+        (error) => {
+          console.error('Erro ao Salvar imagem:', error);
+        }
+      );
+    }
   }
 
   onSubmit() {
 
-    let i = 1;
+    const docsToRemove = this.initialFotos.filter(
+      (initialFoto) => !this.fotos.some((foto) => foto.name === initialFoto.name)
+    );
 
-    this.fotos.forEach((item: any) => {
-      const docKey = `doc${i}`;
+    docsToRemove.forEach((doc) => {
 
-      this.form.addControl(docKey, this.formBuilder.control(item.name));
-
-      i++;
+      this.service.removerFoto(doc.name)
+        .then(() => {
+          console.log('Foto removida com sucesso do Firebase Storage!');
+        })
+        .catch(error => {
+          console.error('Erro ao remover a foto do Firebase Storage:', error);
+        });
 
     });
 
-    this.service.post(this.form.value, "clientes")
+    let i = 1;
+    this.fotos.forEach((item: any) => {
+      const docKey = `doc${i}`;
+
+      if (!this.initialFotos.some((foto) => foto.name === item.name)) {
+        this.upload(item.file, item.name);
+      }
+      this.form.addControl(docKey, this.formBuilder.control(item.name));
+      i++;
+    });
+
+    this.service.update(this.clienteId, this.form.value, "clientes")
       .then((resp) => {
-        console.log(resp)
-        this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastrar cliente');
-
-        this.fotos.forEach((item: any) => {
-
-          this.upload(item.file, item.name);
-
-        });
-
+        this.toastr.success('Cliente editado com sucesso!', 'Editar cliente');
         this.router.navigate(['/clientes']);
       })
       .catch((error) => {
@@ -178,33 +142,23 @@ export class EditarClienteComponent implements OnInit {
       });
   }
 
-  upload(file: any, name: any): void {
-    if (file) {
-      const fileName = name;
-      this.service.uploadImage(file, fileName).subscribe((downloadUrl) => {
-        console.log('Imagem enviada com sucesso! URL:', downloadUrl);
-      }, error => {
-        console.error('Erro ao Salvar imagem:', error);
-      });
-    }
-  }
-
-  getCep(){
-
+  getCep() {
     let form = this.form.getRawValue();
 
-    if(form.cep.length > 8){
+    if (form.cep.length > 8) {
       this.service.getCep(form.cep).subscribe((resp) => {
-
         this.cep = resp;
 
         this.form.controls['endereco'].setValue(this.cep.logradouro);
         this.form.controls['estado'].setValue(this.cep.estado);
         this.form.controls['cidade'].setValue(this.cep.localidade);
         this.form.controls['bairro'].setValue(this.cep.bairro);
-
       });
     }
+  }
+
+  voltar() {
+    this.router.navigate(['/clientes']);
   }
 
   addDocumento(event: any): void {
@@ -212,12 +166,8 @@ export class EditarClienteComponent implements OnInit {
     if (documento) {
       const reader = new FileReader();
       reader.onload = () => {
-        let doc = reader.result;
-
         let fileName = documento.name + `${new Date().getTime()}`;
-
         this.fotos.push({ file: documento, name: fileName });
-
         console.log(this.fotos);
       };
       reader.readAsDataURL(documento);
@@ -225,7 +175,11 @@ export class EditarClienteComponent implements OnInit {
   }
 
   removerDoc(index: number) {
+    const removedFoto = this.fotos[index];
+    const docKey = Object.keys(this.form.controls).find((key) => this.form.controls[key].value === removedFoto.name);
+    if (docKey) {
+      this.form.controls[docKey].setValue('');
+    }
     this.fotos.splice(index, 1);
   }
-
 }
