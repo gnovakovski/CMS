@@ -41,6 +41,7 @@ export class CadastrarClienteComponent {
       bairro: '',
       cidade: '',
       estado: '',
+      documentos: {}
     });
 
   }
@@ -55,31 +56,26 @@ export class CadastrarClienteComponent {
 
     let i = 1;
 
-    this.fotos.forEach((item: any) => {
-      const docKey = `doc${i}`;
+    let timestamp = `${new Date().getTime()}`
 
-      this.form.addControl(docKey, this.formBuilder.control(item.name));
+    this.form.controls['documentos'].setValue(this.fotos.map(obj => timestamp + "_" + obj.name));
 
-      i++;
+     this.service.post(this.form.value, "clientes")
+       .then((resp) => {
+         console.log(resp)
+         this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastrar cliente');
 
-    });
+         this.fotos.forEach((item: any) => {
 
-    this.service.post(this.form.value, "clientes")
-      .then((resp) => {
-        console.log(resp)
-        this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastrar cliente');
+           this.upload(item.file, timestamp + "_" + item.name);
 
-        this.fotos.forEach((item: any) => {
+         });
 
-          this.upload(item.file, item.name);
-
-        });
-
-        this.router.navigate(['/clientes']);
-      })
-      .catch((error) => {
-        this.toastr.error(error, 'Erro');
-      });
+         this.router.navigate(['/clientes']);
+       })
+       .catch((error) => {
+         this.toastr.error(error, 'Erro');
+       });
   }
 
   upload(file: any, name: any): void {
@@ -118,7 +114,7 @@ export class CadastrarClienteComponent {
       reader.onload = () => {
         let doc = reader.result;
 
-        let fileName = documento.name + `${new Date().getTime()}`;
+        let fileName = documento.name;
 
         this.fotos.push({ file: documento, name: fileName });
 

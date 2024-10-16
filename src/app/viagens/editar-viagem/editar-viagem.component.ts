@@ -254,7 +254,7 @@ export class EditarViagemComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/viagens']);
+    this.router.navigate(['/produtos']);
 
   }
 

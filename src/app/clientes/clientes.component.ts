@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ClientesComponent implements OnInit {
 
   public clientes: any
+  public clienteById: any
 
   constructor(private service: ServiceService, private toastr: ToastrService) {}
 
@@ -30,7 +31,22 @@ export class ClientesComponent implements OnInit {
 
   deletarCliente(id: any){
 
-    this.service.delete(id, "clientes")
+    this.service.getById(id, "clientes").subscribe(data => {
+
+      this.clienteById = data;
+
+      this.clienteById.documentos.forEach((item: any) => {
+
+        this.service.removerFoto(item)
+          .then(() => {
+            console.log('Foto removida com sucesso!');
+          })
+          .catch(error => {
+          });
+
+      })
+
+      this.service.delete(id, "clientes")
       .then((resp) => {
 
         this.toastr.success('Cliente deletado com sucesso!', 'Deletar cliente');
@@ -40,5 +56,12 @@ export class ClientesComponent implements OnInit {
       .catch((error) => {
         this.toastr.error(error, 'Erro');
       });
+
+
+    });
+
+
+
 }
+
 }

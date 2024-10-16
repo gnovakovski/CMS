@@ -10,6 +10,11 @@ interface Foto {
   name: string;
 }
 
+interface DeleteFoto {
+  file: any;
+  name: string;
+}
+
 @Component({
   selector: 'app-editar-cliente',
   templateUrl: './editar-cliente.component.html',
@@ -24,7 +29,10 @@ export class EditarClienteComponent implements OnInit {
   public cliente: any;
   public clienteId: any;
 
+  public timestampGlobal: any
+
   fotos: Foto[] = [];
+  deleteFoto: DeleteFoto[] = [];
   initialFotos: Foto[] = [];
 
   constructor(
@@ -52,6 +60,7 @@ export class EditarClienteComponent implements OnInit {
       bairro: '',
       cidade: '',
       estado: '',
+      documentos: {}
     });
 
     if (this.clienteId) {
@@ -78,13 +87,14 @@ export class EditarClienteComponent implements OnInit {
       this.form.controls['cidade'].setValue(this.cliente.cidade);
       this.form.controls['estado'].setValue(this.cliente.estado);
 
-      Object.keys(this.cliente).forEach((key) => {
-        if (key.startsWith('doc') && this.cliente[key]) {
-          this.form.addControl(key, this.formBuilder.control(this.cliente[key]));
+      this.cliente.documentos.forEach((item: any) => {
 
-          this.fotos.push({ file: '', name: this.cliente[key] });
-          this.initialFotos.push({ file: '', name: this.cliente[key] });
-        }
+        const resultado = item.split('_').slice(1).join('_');
+        this.timestampGlobal = item.split('_').slice(0);
+
+        this.timestampGlobal = this.timestampGlobal[0]
+
+        this.fotos.push({ file: '', name: resultado });
       });
     });
   }
@@ -105,41 +115,35 @@ export class EditarClienteComponent implements OnInit {
 
   onSubmit() {
 
-    const docsToRemove = this.initialFotos.filter(
-      (initialFoto) => !this.fotos.some((foto) => foto.name === initialFoto.name)
-    );
+    this.form.controls['documentos'].setValue(this.fotos.map(obj => this.timestampGlobal + "_" + obj.name));
 
-    docsToRemove.forEach((doc) => {
+     this.service.update(this.clienteId, this.form.value, "clientes")
+       .then((resp) => {
+         this.toastr.success('Cliente editado com sucesso!', 'Editar cliente');
 
-      this.service.removerFoto(doc.name)
-        .then(() => {
-          console.log('Foto removida com sucesso do Firebase Storage!');
-        })
-        .catch(error => {
-          console.error('Erro ao remover a foto do Firebase Storage:', error);
+         this.fotos.forEach((item: any) => {
+
+          if(item.file !== ''){
+            this.upload(item.file, this.timestampGlobal + "_" + item.name);
+          }
+
+         this.deleteFoto.forEach((item: any) =>{
+          this.service.removerFoto(this.timestampGlobal + "_" + item.name)
+          .then(() => {
+            console.log('Foto removida com sucesso!');
+          })
+          .catch(error => {
+          });
+         })
+
         });
 
-    });
+         this.router.navigate(['/clientes']);
+       })
+       .catch((error) => {
+         this.toastr.error(error, 'Erro');
+       });
 
-    let i = 1;
-    this.fotos.forEach((item: any) => {
-      const docKey = `doc${i}`;
-
-      if (!this.initialFotos.some((foto) => foto.name === item.name)) {
-        this.upload(item.file, item.name);
-      }
-      this.form.addControl(docKey, this.formBuilder.control(item.name));
-      i++;
-    });
-
-    this.service.update(this.clienteId, this.form.value, "clientes")
-      .then((resp) => {
-        this.toastr.success('Cliente editado com sucesso!', 'Editar cliente');
-        this.router.navigate(['/clientes']);
-      })
-      .catch((error) => {
-        this.toastr.error(error, 'Erro');
-      });
   }
 
   getCep() {
@@ -166,7 +170,7 @@ export class EditarClienteComponent implements OnInit {
     if (documento) {
       const reader = new FileReader();
       reader.onload = () => {
-        let fileName = documento.name + `${new Date().getTime()}`;
+        let fileName = documento.name;
         this.fotos.push({ file: documento, name: fileName });
         console.log(this.fotos);
       };
@@ -175,11 +179,10 @@ export class EditarClienteComponent implements OnInit {
   }
 
   removerDoc(index: number) {
-    const removedFoto = this.fotos[index];
-    const docKey = Object.keys(this.form.controls).find((key) => this.form.controls[key].value === removedFoto.name);
-    if (docKey) {
-      this.form.controls[docKey].setValue('');
-    }
+
+    this.deleteFoto.push({ file: '', name: this.fotos[index].name });
+
     this.fotos.splice(index, 1);
+
   }
 }

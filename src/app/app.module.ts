@@ -29,6 +29,11 @@ import { CpfMaskDirective } from './masks/cpf-mask.directive';
 import { CepMaskDirective } from './masks/cep-mask.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { EditarClienteComponent } from './clientes/cadastrar-cliente/editar-cliente/editar-cliente.component';
+import { FornecedoresComponent } from './fornecedores/fornecedores.component';
+import { CadastrarFornecedorComponent } from './fornecedores/cadastrar-fornecedor/cadastrar-fornecedor.component';
+import { EditarFornecedorComponent } from './fornecedores/editar-fornecedor/editar-fornecedor.component';
+import { CnpjMaskDirective } from './masks/cnpj-mask.directive';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,11 @@ import { EditarClienteComponent } from './clientes/cadastrar-cliente/editar-clie
       PhoneMaskDirective,
       CpfMaskDirective,
       CepMaskDirective,
-      EditarClienteComponent
+      EditarClienteComponent,
+      FornecedoresComponent,
+      CadastrarFornecedorComponent,
+      EditarFornecedorComponent,
+      CnpjMaskDirective
    ],
   imports: [
     BrowserModule,
@@ -62,7 +71,8 @@ import { EditarClienteComponent } from './clientes/cadastrar-cliente/editar-clie
     QuillModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
 
