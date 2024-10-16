@@ -30,6 +30,8 @@ export class EditarViagemComponent implements OnInit {
 
   public viagemId: any;
 
+  public fornecedores: any;
+
   content = '';
 
   editorConfig = {
@@ -93,8 +95,18 @@ export class EditarViagemComponent implements OnInit {
 
   this.getViagemById(this.viagemId);
 
-  }
+  this.getFornecedores();
 
+}
+
+getFornecedores(){
+  this.service.getCollectionData('fornecedores').subscribe((data) => {
+
+    this.fornecedores = data;
+
+  });
+
+}
   getViagemById(id: any){
     this.service.getById(id, "viagens").subscribe(data => {
       this.viagem = data;
@@ -200,7 +212,7 @@ export class EditarViagemComponent implements OnInit {
           this.upload(this.file5, this.form.value.foto5);
         }
 
-        this.router.navigate(['/viagens']);
+        this.router.navigate(['/produtos']);
        })
        .catch((error) => {
          this.toastr.error(error, 'Erro');
