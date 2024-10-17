@@ -29,7 +29,7 @@
   <div class="container" *ngIf="loading">
 
     <div class="content-btn-filter">
-    <button class="button" routerLink="cadastrar-viagem">Cadastrar viagem</button>
+    <button class="button" routerLink="cadastrar-produto">Cadastrar produto</button>
 
     </div>
 
@@ -43,7 +43,7 @@
           <h5 class="text-center mt-2">{{item.titulo}}</h5>
           <p>{{item.data_ida}} a {{item.data_volta}}</p>
           <p class="text-center">R$ {{item.preco}}<br>{{item.parcelamento}}</p>
-          <button routerLink="editar-viagem/{{item.id}}">Editar</button>
+          <button routerLink="editar-produto/{{item.id}}">Editar</button>
         </div>
       </div>
 

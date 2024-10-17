@@ -25,6 +25,8 @@ export class CadastrarViagemComponent implements OnInit {
   public file4: any;
   public file5: any;
 
+  public fornecedores: any;
+
   content = '';
 
   editorConfig = {
@@ -83,11 +85,22 @@ export class CadastrarViagemComponent implements OnInit {
       foto5: `minha-imagem5-${new Date().getTime()}`,
     });
 
+    this.getFornecedores();
+
+  }
+
+  getFornecedores(){
+    this.service.getCollectionData('fornecedores').subscribe((data) => {
+
+      this.fornecedores = data;
+
+    });
+
   }
 
   voltar(){
 
-    this.router.navigate(['/viagens']);
+    this.router.navigate(['/produtos']);
 
   }
 

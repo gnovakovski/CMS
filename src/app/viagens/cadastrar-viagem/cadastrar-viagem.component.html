@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="title-cadastro">
-  Cadastrar Viagem
+  Cadastrar Produto
 </div>
 
 
@@ -80,9 +80,7 @@
         <label for="">Fornecedor</label>
         <select formControlName="fornecedor">
           <option value="">Selecione uma opção</option>
-          <option value="Laghetto">Laghetto</option>
-          <option value="Ibis Hotel">Ibis Hotel</option>
-
+          <option value="{{item.razao_social}}" *ngFor="let item of fornecedores">{{item.razao_social}}</option>
         </select>
       </div>
 

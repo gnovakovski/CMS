@@ -11,6 +11,10 @@ import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastra
 import { VendasComponent } from './vendas/vendas.component';
 import { CadastrarVendaComponent } from './vendas/cadastrar-venda/cadastrar-venda.component';
 import { EditarVendaComponent } from './vendas/editar-venda/editar-venda.component';
+import { EditarClienteComponent } from './clientes/cadastrar-cliente/editar-cliente/editar-cliente.component';
+import { FornecedoresComponent } from './fornecedores/fornecedores.component';
+import { CadastrarFornecedorComponent } from './fornecedores/cadastrar-fornecedor/cadastrar-fornecedor.component';
+import { EditarFornecedorComponent } from './fornecedores/editar-fornecedor/editar-fornecedor.component';
 
 const routes: Routes = [
 
@@ -26,7 +30,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'viagens',
+    path: 'produtos',
     component: ViagensComponent
   },
 
@@ -38,6 +42,21 @@ const routes: Routes = [
   {
     path: 'vendas',
     component: VendasComponent
+  },
+
+  {
+    path: 'fornecedores',
+    component: FornecedoresComponent
+  },
+
+  {
+    path: 'fornecedores/cadastrar-fornecedor',
+    component: CadastrarFornecedorComponent
+  },
+
+  {
+    path: 'fornecedores/editar-fornecedor/:id',
+    component: EditarFornecedorComponent
   },
 
   {
@@ -56,12 +75,17 @@ const routes: Routes = [
   },
 
   {
-    path: 'viagens/cadastrar-viagem',
+    path: 'clientes/editar-cliente/:id',
+    component: EditarClienteComponent
+  },
+
+  {
+    path: 'produtos/cadastrar-produto',
     component: CadastrarViagemComponent
   },
 
   {
-    path: 'viagens/editar-viagem/:id',
+    path: 'produtos/editar-produto/:id',
     component: EditarViagemComponent
   },
 

@@ -30,6 +30,12 @@ import { CpfMaskDirective } from './masks/cpf-mask.directive';
 import { CepMaskDirective } from './masks/cep-mask.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastrarEmbarqueComponent } from './embarque/cadastrar-embarque/cadastrar-embarque.component';
+import { EditarClienteComponent } from './clientes/cadastrar-cliente/editar-cliente/editar-cliente.component';
+import { FornecedoresComponent } from './fornecedores/fornecedores.component';
+import { CadastrarFornecedorComponent } from './fornecedores/cadastrar-fornecedor/cadastrar-fornecedor.component';
+import { EditarFornecedorComponent } from './fornecedores/editar-fornecedor/editar-fornecedor.component';
+import { CnpjMaskDirective } from './masks/cnpj-mask.directive';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -50,7 +56,12 @@ import { CadastrarEmbarqueComponent } from './embarque/cadastrar-embarque/cadast
       PhoneMaskDirective,
       CpfMaskDirective,
       CepMaskDirective,
-      CadastrarEmbarqueComponent
+      CadastrarEmbarqueComponent,
+      EditarClienteComponent,
+      FornecedoresComponent,
+      CadastrarFornecedorComponent,
+      EditarFornecedorComponent,
+      CnpjMaskDirective
    ],
   imports: [
     BrowserModule,
@@ -64,7 +75,8 @@ import { CadastrarEmbarqueComponent } from './embarque/cadastrar-embarque/cadast
     QuillModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
 
