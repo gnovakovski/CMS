@@ -2,15 +2,25 @@
   <div class="logo">LOGO</div>
 
   <nav class="menu">
-    <a href="/produtos">Produtos</a>
-    <a href="/clientes">Clientes</a>
-    <a href="/fornecedores">Fornecedores</a>
-    <a href="/vendas">Vendas</a>
-    <a href="/embarque">Embarque/Desembarque</a>
+    <a *ngIf="roleProdutos" href="/produtos">Produtos</a>
+    <a *ngIf="roleClientes" href="/clientes">Clientes</a>
+    <a *ngIf="roleFornecedores" href="/fornecedores">Fornecedores</a>
+    <a *ngIf="roleVendas" href="/vendas">Vendas</a>
+    <a  *ngIf="roleEmbarqueDesembarque" href="/embarque">Embarque/Desembarque</a>
   </nav>
 
   <div class="settings">
-    <i class="icon-gear"></i>
+    <i *ngIf="roleConf" class="icon-gear" (click)="aparecerConf()"></i>
+    <div style="position: fixed; margin-top: 100px; margin-left: -60px;" *ngIf="boxConf && roleConf">
+      <div class="box-conf">
+        <div routerLink="/usuarios" style="cursor: pointer;">
+          Usuários
+        </div>
+        <div>
+          Nível de acesso
+        </div>
+      </div>
+    </div>
     <button (click)="logout()">Logout</button>
   </div>
 </header>

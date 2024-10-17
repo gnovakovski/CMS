@@ -20,9 +20,6 @@ export class ViagensComponent implements OnInit {
 
       this.getViagens();
 
-    setTimeout(() => {
-      this.loading = true
-    }, 3700);
 
   }
 

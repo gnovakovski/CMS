@@ -2,31 +2,7 @@
 
 <div style="background-color: rgb(25, 22, 41) !important;">
 
-<div class="loader" *ngIf="!loading">
-  <div class="loading-text">
-    Carregando<span class="dot">.</span><span class="dot">.</span
-    ><span class="dot">.</span>
-  </div>
-  <div class="loading-bar-background">
-    <div class="loading-bar">
-      <div class="white-bars-container">
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  <div class="container" *ngIf="loading">
+  <div class="container">
 
     <div class="content-btn-filter">
     <button class="button" routerLink="cadastrar-produto">Cadastrar produto</button>
@@ -46,7 +22,6 @@
           <button routerLink="editar-produto/{{item.id}}">Editar</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>

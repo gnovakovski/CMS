@@ -15,13 +15,23 @@ import { EditarClienteComponent } from './clientes/cadastrar-cliente/editar-clie
 import { FornecedoresComponent } from './fornecedores/fornecedores.component';
 import { CadastrarFornecedorComponent } from './fornecedores/cadastrar-fornecedor/cadastrar-fornecedor.component';
 import { EditarFornecedorComponent } from './fornecedores/editar-fornecedor/editar-fornecedor.component';
+import { HomeComponent } from './home/home.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { NivelAcessoComponent } from './nivel-acesso/nivel-acesso.component';
+import { CadastrarUsuarioComponent } from './usuarios/cadastrar-usuario/cadastrar-usuario.component';
+import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'inicio',
     pathMatch: 'full'
+  },
+
+  {
+    path: 'inicio',
+    component: HomeComponent
   },
 
   {
@@ -47,6 +57,26 @@ const routes: Routes = [
   {
     path: 'fornecedores',
     component: FornecedoresComponent
+  },
+
+  {
+    path: 'usuarios',
+    component: UsuariosComponent
+  },
+
+  {
+    path: 'nivel-acesso',
+    component: NivelAcessoComponent
+  },
+
+  {
+    path: 'usuarios/cadastrar-usuario',
+    component: CadastrarUsuarioComponent
+  },
+
+  {
+    path: 'usuarios/editar-usuario/:id',
+    component: EditarUsuarioComponent
   },
 
   {

@@ -36,6 +36,14 @@ import { CadastrarFornecedorComponent } from './fornecedores/cadastrar-fornecedo
 import { EditarFornecedorComponent } from './fornecedores/editar-fornecedor/editar-fornecedor.component';
 import { CnpjMaskDirective } from './masks/cnpj-mask.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
+import { CarrosselHomeComponent } from './components/carrossel-home/carrossel-home.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HeaderSiteComponent } from './components/header-site/header-site.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { NivelAcessoComponent } from './nivel-acesso/nivel-acesso.component';
+import { CadastrarUsuarioComponent } from './usuarios/cadastrar-usuario/cadastrar-usuario.component';
+import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +69,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       FornecedoresComponent,
       CadastrarFornecedorComponent,
       EditarFornecedorComponent,
-      CnpjMaskDirective
+      CnpjMaskDirective,
+      HomeComponent,
+      CarrosselHomeComponent,
+      HeaderSiteComponent,
+      UsuariosComponent,
+      NivelAcessoComponent,
+      CadastrarUsuarioComponent,
+      EditarUsuarioComponent
    ],
   imports: [
     BrowserModule,
@@ -76,7 +91,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    SlickCarouselModule
   ],
   providers: [
 

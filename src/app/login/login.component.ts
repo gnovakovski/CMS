@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private service: ServiceService, public formBuilder: FormBuilder,) {
 
     this.form = this.formBuilder.group({
-      email: [null, Validators.required],
+      user: [null, Validators.required],
       password: [null, Validators.required],
     });
 
@@ -25,11 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login() {
+  login(email: any) {
 
     let login = this.form.getRawValue();
 
-    this.service.login(login.email, login.password)
+    this.service.login(email, login.password)
 
       .then((result) => {
 
@@ -48,6 +48,24 @@ export class LoginComponent implements OnInit {
       .catch((error) => {
         console.error('Erro ao logar:', error);
       });
+  }
+
+  pegarEmail(){
+
+    let login = this.form.getRawValue();
+
+    this.service.getEmailByUser(login.user).subscribe(data => {
+      if (data) {
+        let email = data;
+
+        this.login(email.email);
+
+        localStorage.setItem('nivel-acesso', email.nivel_acesso);
+
+      } else {
+        console.log('Nenhuma pessoa encontrada com esse email.');
+      }
+    });
   }
 
 }
