@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
           localStorage.setItem('token-adm', tokenAcesso);
 
-          this.router.navigate(['/viagens']);
+          this.router.navigate(['/produtos']);
         });
 
       })
