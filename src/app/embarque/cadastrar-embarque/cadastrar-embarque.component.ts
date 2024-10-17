@@ -87,6 +87,12 @@ export class CadastrarEmbarqueComponent implements OnInit {
 
   }
 
+  voltar(){
+
+    this.router.navigate(['/embarque']);
+
+  }
+
   onSubmit() {
 
     if(!this.file1){

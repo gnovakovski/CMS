@@ -1,3 +1,116 @@
-<p>
-  cadastrar-cliente works!
-</p>
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Cadastrar Cliente
+</div>
+
+
+<form [formGroup]="form">
+<div class="content-cadastro">
+  <div class="content-form-cadastro">
+
+    <div class="content-inputs">
+
+      <div class="input-label">
+        <label for="">Nome</label>
+        <input type="text" formControlName="nome">
+      </div>
+
+      <div class="input-label">
+        <label for="">Data de nascimento</label>
+        <input type="date" formControlName="data_nascimento">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">E-mail</label>
+        <input type="text" formControlName="email">
+      </div>
+
+      <div class="input-label">
+        <label for="">RG</label>
+        <input appRgMask type="text" formControlName="rg">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Telefone</label>
+        <input appPhoneMask type="text" formControlName="telefone">
+      </div>
+
+      <div class="input-label">
+        <label for="">CPF</label>
+        <input appCpfMask type="text" formControlName="cpf">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">CEP</label>
+        <input (keyup)="getCep()" appCepMask type="text" formControlName="cep">
+      </div>
+
+
+      <div class="input-label">
+        <label for="">Endereço</label>
+        <input type="text" formControlName="endereco">
+      </div>
+    </div>
+
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Número</label>
+        <input type="number" formControlName="numero">
+      </div>
+
+
+      <div class="input-label">
+        <label for="">Complemento</label>
+        <input type="text" formControlName="complemento">
+      </div>
+    </div>
+
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Bairro</label>
+        <input type="text" formControlName="bairro">
+      </div>
+
+
+      <div class="input-label">
+        <label for="">Cidade</label>
+        <input type="text" formControlName="cidade">
+      </div>
+    </div>
+
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Estado</label>
+        <input type="text" formControlName="estado">
+      </div>
+
+
+      <div class="input-label" style="opacity: 0;">
+        <label for=""></label>
+        <input type="text" disabled>
+      </div>
+    </div>
+
+    <div class="content-inputs mt-5">
+
+      <button class="btn-voltar" (click)="voltar()">Voltar</button>
+      <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
+
+    </div>
+
+  </div>
+</div>
+</form>

@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Cadastrar Embarque
+</div>
+
+<form [formGroup]="form">
+  <div class="content-cadastro">
+    <div class="content-form-cadastro">
+      <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 20px; gap: 10px; margin-bottom: 20px;">
+      </div>
+      <div class="content-inputs">
+        <div class="input-label">
+          <label for="">Horário</label>
+          <input type="text" style="align-itens:flex-start" formControlName="titulo">
+        </div>
+      </div>
+      <div class="content-inputs">
+        <div class="input-label">
+          <label for="">Endereço</label>
+          <input type="text" formControlName="titulo">
+        </div>
+      </div>
+
+      <div class="content-inputs-individuais mt-4">
+        <div class="input-label">
+          <label for="">Viagens</label>
+          <select formControlName="tipo_negocio">
+            <option value=""></option>
+            <option value="Final de Semana">Final de Semana</option>
+            <option value="Bate e Volta ">Bate e Volta </option>
+            <option value="Aéreo">Aéreo</option>
+            <option value="Rodoviário">Rodoviário</option>
+            <option value="Religioso">Religioso</option>
+          </select>
+        </div>
+      </div>
+      <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 20px; gap: 10px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <label class="switch">
+            <input formControlName="ativo" type="checkbox">
+            <span class="slider"></span>
+          </label>
+          <label for="">Apenas embarque</label>
+        </div>
+      </div>
+      <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 10px; gap: 10px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <label class="switch">
+            <input formControlName="ativo" type="checkbox">
+            <span class="slider"></span>
+          </label>
+          <label for="">Apenas desembarque</label>
+        </div>
+        <div class="content-inputs mt-5">
+
+          <button class="btn-voltar" (click)="voltar()">Voltar</button>
+          <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
+    
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

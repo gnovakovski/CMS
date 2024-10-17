@@ -19,7 +19,17 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastrar-cliente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { ComponentNameComponent } from './component-name/component-name.component';
+import { EditarViagemComponent } from './viagens/editar-viagem/editar-viagem.component';
+import { VendasComponent } from './vendas/vendas.component';
+import { CadastrarVendaComponent } from './vendas/cadastrar-venda/cadastrar-venda.component';
+import { EditarVendaComponent } from './vendas/editar-venda/editar-venda.component';
+import { MoneyMaskDirective } from './masks/money-mask.directive';
+import { RgMaskDirective } from './masks/rg-mask.directive';
+import { PhoneMaskDirective } from './masks/phone-mask.directive';
+import { CpfMaskDirective } from './masks/cpf-mask.directive';
+import { CepMaskDirective } from './masks/cep-mask.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { CadastrarEmbarqueComponent } from './embarque/cadastrar-embarque/cadastrar-embarque.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +40,17 @@ import { ComponentNameComponent } from './component-name/component-name.componen
       CadastrarViagemComponent,
       ClientesComponent,
       CadastrarClienteComponent,
-      ComponentNameComponent,
-      EmbarqueComponent
+      EditarViagemComponent,
+      EmbarqueComponent,
+      VendasComponent,
+      CadastrarVendaComponent,
+      EditarVendaComponent,
+      MoneyMaskDirective,
+      RgMaskDirective,
+      PhoneMaskDirective,
+      CpfMaskDirective,
+      CepMaskDirective,
+      CadastrarEmbarqueComponent
    ],
   imports: [
     BrowserModule,
@@ -45,6 +64,7 @@ import { ComponentNameComponent } from './component-name/component-name.componen
     QuillModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
 

@@ -83,7 +83,11 @@ export class CadastrarViagemComponent implements OnInit {
       foto5: `minha-imagem5-${new Date().getTime()}`,
     });
 
-    console.log(this.form.value)
+  }
+
+  voltar(){
+
+    this.router.navigate(['/viagens']);
 
   }
 
@@ -144,22 +148,27 @@ export class CadastrarViagemComponent implements OnInit {
 
   removeFoto1(){
     this.foto1 = "";
+    this.file1 = "";
   }
 
   removeFoto2(){
     this.foto2 = "";
+    this.file2 = "";
   }
 
   removeFoto3(){
     this.foto3 = "";
+    this.file3 = "";
   }
 
   removeFoto4(){
     this.foto4 = "";
+    this.file4 = "";
   }
 
   removeFoto5(){
     this.foto5 = "";
+    this.file5 = "";
   }
 
   addFoto1(event: any): void {
@@ -228,7 +237,7 @@ export class CadastrarViagemComponent implements OnInit {
       this.service.uploadImage(file, fileName).subscribe((downloadUrl) => {
         console.log('Imagem enviada com sucesso! URL:', downloadUrl);
       }, error => {
-        console.error('Erro ao enviar imagem:', error);
+        console.error('Erro ao Salvar imagem:', error);
       });
     }
   }

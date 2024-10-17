@@ -4,7 +4,7 @@
 
 <div class="loader" *ngIf="!loading">
   <div class="loading-text">
-    Loading<span class="dot">.</span><span class="dot">.</span
+    Carregando<span class="dot">.</span><span class="dot">.</span
     ><span class="dot">.</span>
   </div>
   <div class="loading-bar-background">
@@ -43,7 +43,7 @@
           <h5 class="text-center mt-2">{{item.titulo}}</h5>
           <p>{{item.data_ida}} a {{item.data_volta}}</p>
           <p class="text-center">R$ {{item.preco}}<br>{{item.parcelamento}}</p>
-          <button>Editar</button>
+          <button routerLink="editar-viagem/{{item.id}}">Editar</button>
         </div>
       </div>
 

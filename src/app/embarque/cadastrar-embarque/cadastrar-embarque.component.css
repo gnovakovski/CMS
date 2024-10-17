@@ -47,6 +47,12 @@
   background-color: #ffffff; /* Cor personalizada */
 }
 
+.content-inputs-individuais {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
 .ql-snow .ql-stroke {
   stroke: #ffffff !important; /* Cor branca para os ícones */
 }
