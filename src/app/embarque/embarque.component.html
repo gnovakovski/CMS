@@ -1,58 +1,32 @@
 <app-header></app-header>
 
-<div style="background-color: rgb(25, 22, 41) !important;">
-
-<div class="loader" *ngIf="!loading">
-  <div class="loading-text">
-    Loading<span class="dot">.</span><span class="dot">.</span
-    ><span class="dot">.</span>
+<div class="content-vendas">
+  <div style="padding-top: 25px;">
+    <button class="button" routerLink="cadastrar-embarque-desembarque">Cadastrar Embarque/Desembarque</button>
   </div>
-  <div class="loading-bar-background">
-    <div class="loading-bar">
-      <div class="white-bars-container">
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-        <div class="white-bar"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  <div class="container" *ngIf="loading">
-
-    <div class="input-label">
-      <label for="">Horário</label>
-      <input type="text" formControlName="titulo">
-    </div>
-
-    <div class="content-btn-filter">
-    <button class="button" routerLink="cadastrar-embarque">Cadastrar embarque</button>
-
-    </div>
-
-    <div class="row content-viagens">
-
-      <div class="content-card" *ngFor="let item of embarque">
-        <div>
-          <img src="{{item.foto}}" style="height: 170px; width: 246px;">
-        </div>
-        <div class="box-card">
-          <h5 class="text-center mt-2">{{item.titulo}}</h5>
-          <p>{{item.data_ida}} a {{item.data_volta}}</p>
-          <p class="text-center">R$ {{item.preco}}<br>{{item.parcelamento}}</p>
-          <button>Editar</button>
-        </div>
-      </div>
-
-    </div>
+  <div class="container" style="padding-top: 10px;">
+    <table class="table table-striped table-bordered table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Pontos cadastrados</th>
+          <th scope="col">Horário</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of embarque">
+          <td>{{item.EnderecoEmbarqueDesembarque}}</td>
+          <td>{{item.horarioEmbarqueDesembarque}}</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2" routerLink="editar-embarque-desembarque/{{item.id}}">
+              <i class="bi bi-pencil"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deletarEmbarque(item.id)">
+              <i class="bi bi-trash"></i> Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-

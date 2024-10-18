@@ -120,12 +120,12 @@ const routes: Routes = [
   },
 
   {
-    path: 'embarque',
+    path: 'embarque-desembarque',
     component: EmbarqueComponent
   },
 
   {
-    path: 'embarque/cadastrar-embarque',
+    path: 'embarque-desembarque/cadastrar-embarque-desembarque',
     component: CadastrarEmbarqueComponent
   }
 

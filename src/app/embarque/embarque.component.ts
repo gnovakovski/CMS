@@ -9,43 +9,33 @@ import { ServiceService } from '../service/service.service';
 export class EmbarqueComponent implements OnInit {
 
   public embarque: any
-  public img: any
 
   public loading: boolean = false
+  toastr: any;
 
   constructor(private service: ServiceService) { }
 
   ngOnInit() {
-
-    setTimeout(() => {
-      this.getEmbarque();
-    }, 3000);
-
-    setTimeout(() => {
-      this.loading = true
-    }, 3700);
-
+    this.getEmbarque()
   }
 
-  getEmbarque(){
-    this.service.getCollectionData('embarque').subscribe((data) => {
+  deletarEmbarque(id: any){
 
-      this.embarque = data.map((item: any) => {
-        return {
-          ...item,
-          foto: '',
-        }
+    this.service.delete(id, "embarque-desembarque")
+      .then((resp) => {
+
+        this.toastr.success('Embarque deletada com sucesso!', 'Deletar embarque/desembarque');
+
+        this.getEmbarque();
       })
-
-      this.embarque.forEach((item: any) => {
-
-        this.service.getImageUrl(item.foto1).subscribe((url) => {
-
-          item.foto = url;
-
-       });
-
+      .catch((error) => {
+        this.toastr.error(error, 'Erro');
       });
+}
+
+  getEmbarque(){
+    this.service.getCollectionData('embarque-desembarque').subscribe((data) => {
+      this.embarque = data
     });
 
   }
