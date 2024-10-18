@@ -31,7 +31,7 @@
 
       <div class="input-label">
         <label for="">E-mail</label>
-        <input type="text" formControlName="email">
+        <input style="color: rgb(141, 141, 141);" type="text" disabled [value]="usuario.email ? usuario.email : ''">
       </div>
 
     </div>
@@ -59,7 +59,7 @@
     <div class="content-inputs mt-5">
 
       <button class="btn-voltar" (click)="voltar()">Voltar</button>
-      <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
+      <button class="btn-salvar" (click)="editar()">Salvar</button>
 
     </div>
 

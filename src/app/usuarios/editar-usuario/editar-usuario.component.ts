@@ -3,6 +3,7 @@ import { ServiceService } from '../../service/service.service';
 import { FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -16,6 +17,8 @@ export class EditarUsuarioComponent implements OnInit {
 
   public usuario: any;
   public usuarioId: any;
+
+  public senha: any
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
 
@@ -35,11 +38,12 @@ export class EditarUsuarioComponent implements OnInit {
 
     this.getNivelAcesso();
     this.getUsuarioById(this.usuarioId);
+
   }
 
-  getUsuarioById(id: any){
+  getUsuarioById(id: any) {
 
-    this.service.getById(id, "usuarios").subscribe(data => {
+    this.service.getById(id, "usuarios").pipe(take(1)).subscribe(data => {
       this.usuario = data;
 
       this.form.controls['nome'].setValue(this.usuario.nome);
@@ -49,8 +53,11 @@ export class EditarUsuarioComponent implements OnInit {
       this.form.controls['nivel_acesso'].setValue(this.usuario.nivel_acesso);
       this.form.controls['status'].setValue(this.usuario.status);
 
+      this.senha = this.usuario.senha ? `${this.usuario.senha}` : '';
+
     });
   }
+
 
   voltar(){
 
@@ -67,26 +74,35 @@ export class EditarUsuarioComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  editar(){
 
-    this.service.post(this.form.value, "usuarios")
+    this.service.update(this.usuarioId, this.form.value, "usuarios")
       .then((resp) => {
-        console.log(resp)
-        this.toastr.success('Usuário cadastrado com sucesso!', 'Cadastrar usuário');
 
-          this.service.registerWithEmail(this.form.value.email, this.form.value.senha)
-            .then((result) => {
-              console.log('Usuário registrado com sucesso:', result);
-            })
-            .catch((error) => {
-              console.error('Erro ao registrar:', error);
-            });
+        this.toastr.success('Usuário editado com sucesso!', 'Editar usuário');
 
-        this.router.navigate(['/usuarios']);
+        console.log(this.senha)
+        console.log(this.form.value.senha)
+
+        if(this.senha !== this.form.value.senha){
+
+          console.log("entrou no if")
+
+          this.updatePassword(this.form.value.senha)
+
+        }
+
+       this.router.navigate(['/usuarios']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');
       });
   }
 
+  updatePassword(senhaNova: any) {
+    this.service.changePassword(senhaNova, this.senha);
+
+
+
+  }
 }

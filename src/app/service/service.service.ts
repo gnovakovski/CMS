@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/compat/auth'; // Mantenha apenas essa importação
+import { from, Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EmailAuthProvider } from 'firebase/auth'; // Usado para criar as credenciais de email e senha
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +15,9 @@ export class ServiceService {
 
   constructor(private http: HttpClient, private afAuth: AngularFireAuth, private firestore: AngularFirestore, private fireStorage: AngularFireStorage) { }
 
-  login(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+  login(email: string, password: string): Observable<any> {
+    return from(this.afAuth.signInWithEmailAndPassword(email, password));  // Converte Promise para Observable
   }
-
 
   logout(): Promise<void> {
     return this.afAuth.signOut();
@@ -128,5 +129,39 @@ export class ServiceService {
         })
       );
   }
+
+
+  changePassword(newPassword: string, currentPassword: string) {
+    const user = this.afAuth.currentUser;
+
+    return user.then(currentUser => {
+      if (currentUser && currentUser.email) {
+        // Primeiro, reautenticar o usuário
+        const credentials = EmailAuthProvider.credential(currentUser.email, currentPassword);
+
+        return currentUser.reauthenticateWithCredential(credentials)
+          .then(() => {
+            // Se a reautenticação for bem-sucedida, alterar a senha
+            return currentUser.updatePassword(newPassword)
+              .then(() => {
+                console.log('Senha alterada com sucesso!');
+                return true; // Retorna true quando a senha for alterada com sucesso
+              })
+              .catch((error) => {
+                console.error('Erro ao alterar senha:', error);
+                return false; // Retorna false em caso de erro
+              });
+          })
+          .catch((error) => {
+            console.error('Erro ao reautenticar o usuário:', error);
+            return false; // Retorna false se a reautenticação falhar
+          });
+      } else {
+        console.error('Usuário não autenticado.');
+        return Promise.resolve(false); // Retorna uma Promise resolvida com false se o usuário não estiver logado
+      }
+    });
+  }
+
 
 }

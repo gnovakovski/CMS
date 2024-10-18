@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
 import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-viagens',
@@ -20,28 +21,13 @@ export class ViagensComponent implements OnInit {
 
       this.getViagens();
 
-
   }
 
   getViagens(){
-    this.service.getCollectionData('viagens').subscribe((data) => {
+    this.service.getCollectionData('viagens').pipe(take(1)).subscribe((data) => {
 
-      this.viagens = data.map((item: any) => {
-        return {
-          ...item,
-          foto: '',
-        }
-      })
+      this.viagens = data;
 
-      this.viagens.forEach((item: any) => {
-
-        this.service.getImageUrl(item.foto1).subscribe((url) => {
-
-          item.foto = url;
-
-       });
-
-      });
     });
 
   }
