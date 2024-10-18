@@ -41,3 +41,12 @@ html, body{
   background-color: rgb(41, 107, 25);
   border-radius: 5px;
 }
+
+.select2-selection__choice {
+  padding-left: 24px !important;
+}
+
+.select2-selection__choice__remove {
+  margin-left: 0px !important; /* Espaçamento à esquerda do ícone de remover */
+  color: #dc3545 !important; /* Cor do X (opcional) */
+}
