@@ -44,6 +44,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { NivelAcessoComponent } from './nivel-acesso/nivel-acesso.component';
 import { CadastrarUsuarioComponent } from './usuarios/cadastrar-usuario/cadastrar-usuario.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
+import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario
       CpfMaskDirective,
       CepMaskDirective,
       CadastrarEmbarqueComponent,
+      EditarEmbarqueDesembarqueComponent,
       EditarClienteComponent,
       FornecedoresComponent,
       CadastrarFornecedorComponent,

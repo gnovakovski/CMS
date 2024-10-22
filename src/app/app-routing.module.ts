@@ -20,6 +20,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { NivelAcessoComponent } from './nivel-acesso/nivel-acesso.component';
 import { CadastrarUsuarioComponent } from './usuarios/cadastrar-usuario/cadastrar-usuario.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
+import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
 
 const routes: Routes = [
 
@@ -127,7 +128,12 @@ const routes: Routes = [
   {
     path: 'embarque-desembarque/cadastrar-embarque-desembarque',
     component: CadastrarEmbarqueComponent
-  }
+  },
+
+  {
+    path: 'embarque-desembarque/editar-embarque-desembarque',
+    component: EditarEmbarqueDesembarqueComponent
+  },
 
 ];
 
