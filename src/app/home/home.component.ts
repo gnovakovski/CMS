@@ -1,5 +1,4 @@
-//import { FirebaseService } from './../service/firebase.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public innerWidth: any;
+
   constructor() { }
 
   ngOnInit() {
 
+    this.innerWidth = window.innerWidth;
+
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerWidth = window.innerWidth;
   }
 
 }

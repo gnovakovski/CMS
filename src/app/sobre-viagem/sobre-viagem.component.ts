@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sobre-viagem',
@@ -9,6 +10,7 @@ import { ServiceService } from '../service/service.service';
 export class SobreViagemComponent implements OnInit {
 
   public viagem: any;
+  public viagemId: any;
 
   public foto1: any;
   public foto2: any;
@@ -16,9 +18,14 @@ export class SobreViagemComponent implements OnInit {
   public foto4: any;
   public foto5: any;
 
-  constructor(private service: ServiceService) {}
+  constructor(private service: ServiceService, private activatedRoute: ActivatedRoute,) {}
 
   ngOnInit() {
+
+    this.viagemId = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.getViagemById(this.viagemId)
+
   }
 
   getViagemById(id: any){

@@ -1,5 +1,5 @@
 .content-cadastro{
-  background-color: rgb(25, 22, 41);
+  background-color:  #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,8 +11,8 @@
   align-items: center;
   justify-content: center;
   padding-top: 30px;
-  background-color: rgb(25, 22, 41);
-  color: white;
+  background-color:  white;
+  color: black;
   font-size: 36px;
   font-weight: bold;
 }
@@ -21,7 +21,7 @@
   width: 1300px;
   height: auto;
   padding: 30px;
-  background-color: rgb(30, 26, 53);
+  background-color: #0B5A82;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,8 +63,6 @@ label{
   color: white;
 }
 
-/* From Uiverse.io by mrhyddenn */
-/* The switch - the box around the slider */
 .switch {
   font-size: 17px;
   position: relative;
@@ -73,14 +71,12 @@ label{
   height: 25px;
  }
 
- /* Hide default HTML checkbox */
  .switch input {
   opacity: 1;
   width: 0;
   height: 0;
  }
 
- /* The slider */
  .slider {
   position: absolute;
   cursor: pointer;

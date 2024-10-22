@@ -49,9 +49,13 @@ import { CadastrarNivelAcessoComponent } from './nivel-acesso/cadastrar-nivel-ac
 import { Select2Module } from 'ng-select2-component';
 import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/editar-nivel-acesso.component';
 import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
+import { CarrosselHomeResponsive1Component } from './components/carrossel-home-responsive1/carrossel-home-responsive1.component';
+import { CarrosselHomeResponsive2Component } from './components/carrossel-home-responsive2/carrossel-home-responsive2.component';
+import { CarrosselHomeResponsive3Component } from './components/carrossel-home-responsive3/carrossel-home-responsive3.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       LoginComponent,
       ViagensComponent,
@@ -85,7 +89,11 @@ import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
       EditarUsuarioComponent,
       CadastrarNivelAcessoComponent,
       EditarNivelAcessoComponent,
-      SobreViagemComponent
+      SobreViagemComponent,
+      CarrosselHomeResponsive1Component,
+      CarrosselHomeResponsive2Component,
+      CarrosselHomeResponsive3Component,
+      FooterComponent
    ],
   imports: [
     BrowserModule,

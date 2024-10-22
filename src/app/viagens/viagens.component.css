@@ -13,15 +13,13 @@
 }
 
 .content-vendas{
-  background-color: rgb(25, 22, 41);
+  background-color:  #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-
- /* From Uiverse.io by vikiWayne */
  .button {
   padding: 0.7em 0.5em;
   border: none;
@@ -30,19 +28,19 @@
   letter-spacing: 5px;
   text-transform: uppercase;
   cursor: pointer;
-  color: #167440;
+  color: #0B5A82;
   transition: all 1000ms;
   font-size: 15px;
   position: relative;
   overflow: hidden;
-  outline: 2px solid #167440;
+  outline: 2px solid #0B5A82;
 }
 
 .button:hover {
   color: #ffffff;
   transform: scale(1.1);
-  outline: 2px solid #167440;
-  box-shadow: 4px 5px 17px -4px #167440;
+  outline: 2px solid #0B5A82;
+  box-shadow: 4px 5px 17px -4px #0B5A82;
 }
 
 .button::before {
@@ -52,7 +50,7 @@
   top: 0;
   width: 0;
   height: 100%;
-  background-color: #167440;
+  background-color: #0B5A82;
   transform: skewX(45deg);
   z-index: -1;
   transition: width 1000ms;

@@ -1,21 +1,21 @@
-<div class="header">
-  <div style="color: white;">
-    LOGO MARCA
+<div class="header" *ngIf="innerWidth > 881">
+  <div routerLink="/">
+    <img class="logo" src="assets/logo.png" alt="">
   </div>
   <div class="menus-header">
-    <div>
+    <div style="cursor: pointer;">
       Final de Semana
     </div>
-    <div>
+    <div style="cursor: pointer;">
       Bate e Volta
     </div>
-    <div>
+    <div style="cursor: pointer;">
       Aéreo
     </div>
-    <div>
+    <div style="cursor: pointer;">
       Rodoviário
     </div>
-    <div>
+    <div style="cursor: pointer;">
       Religioso
     </div>
   </div>
@@ -23,4 +23,34 @@
     <button routerLink="/login">ÁREA DO AGENTE</button>
   </div>
 
+</div>
+
+<div class="header-responsive" *ngIf="innerWidth < 882">
+  <div>
+    <img class="logo" src="assets/logo.png" alt="">
+  </div>
+  <div (click)="abrirMenu()">
+    <img src="assets/icon_menu.svg" style="width: 120%;">
+  </div>
+</div>
+
+<div class="menu" *ngIf="this.menu && innerWidth < 882">
+  <div style="cursor: pointer;">
+      Final de Semana
+    </div>
+    <div style="cursor: pointer;">
+      Bate e Volta
+    </div>
+    <div style="cursor: pointer;">
+      Aéreo
+    </div>
+    <div style="cursor: pointer;">
+      Rodoviário
+    </div>
+    <div style="cursor: pointer;">
+      Religioso
+    </div>
+  <div class="content-button-header">
+    <button routerLink="/login">ÁREA DO AGENTE</button>
+  </div>
 </div>

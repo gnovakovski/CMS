@@ -1,5 +1,5 @@
 .content-cadastro{
-  background-color: rgb(25, 22, 41);
+  background-color:  #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,8 +11,8 @@
   align-items: center;
   justify-content: center;
   padding-top: 30px;
-  background-color: rgb(25, 22, 41);
-  color: white;
+  background-color:  white;
+  color: black;
   font-size: 36px;
   font-weight: bold;
 }
@@ -21,7 +21,7 @@
   width: 1300px;
   height: auto;
   padding: 30px;
-  background-color: rgb(30, 26, 53);
+  background-color: #0B5A82;
   display: flex;
   align-items: center;
   justify-content: center;

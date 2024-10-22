@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServiceService } from '../../service/service.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { ServiceService } from '../../service/service.service';
   styleUrls: ['./carrossel-home.component.scss']
 })
 export class CarrosselHomeComponent implements OnInit {
+
+  @Input() valor: any
 
   constructor(private service: ServiceService) { }
 
@@ -33,7 +35,7 @@ export class CarrosselHomeComponent implements OnInit {
   getViagensTipoAereo() {
     this.service.getCollectionData('viagens').subscribe((data) => {
       const viagensAereas = data.filter((item: any) =>
-        item.tipo_negocio === 'Aéreo' && item.carrossel !== false
+        item.tipo_negocio === this.valor && item.carrossel !== false && item.carrossel !== ''
       );
 
       const totalViagens = viagensAereas.length;

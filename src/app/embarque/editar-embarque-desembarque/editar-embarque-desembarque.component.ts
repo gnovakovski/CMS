@@ -16,15 +16,10 @@ export class EditarEmbarqueDesembarqueComponent implements OnInit {
   public form: any;
   public clientes: any;
   public embarque: any;
-  activatedRoute: any;
 
-  constructor(private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
 
   ngOnInit() {
-
-    this.getViagens();
-    this.getClientes();
-    this.getEmbarqueById(this.embarqueId);
 
     this.embarqueId = this.activatedRoute.snapshot.paramMap.get('id');
 
@@ -35,6 +30,9 @@ export class EditarEmbarqueDesembarqueComponent implements OnInit {
       embarqueDesembarque: '',
     });
 
+    this.getViagens();
+    this.getEmbarqueById(this.embarqueId);
+
   }
 
   getEmbarqueById(id: any){
@@ -42,13 +40,10 @@ export class EditarEmbarqueDesembarqueComponent implements OnInit {
     this.service.getById(id, "embarque-desembarque").subscribe(data => {
       this.embarque = data;
 
+      this.form.controls['horarioEmbarqueDesembarque'].setValue(this.embarque.horarioEmbarqueDesembarque);
+      this.form.controls['EnderecoEmbarqueDesembarque'].setValue(this.embarque.EnderecoEmbarqueDesembarque);
       this.form.controls['viagem'].setValue(this.embarque.viagem);
-      this.form.controls['forma_pagamento'].setValue(this.embarque.forma_pagamento);
-      this.form.controls['data_reserva'].setValue(this.embarque.data_reserva);
-      this.form.controls['data_pagamento'].setValue(this.embarque.data_pagamento);
-      this.form.controls['cliente'].setValue(this.embarque.cliente);
-      this.form.controls['status_pagamento'].setValue(this.embarque.status_pagamento);
-      this.form.controls['valor'].setValue(this.embarque.valor);
+      this.form.controls['embarqueDesembarque'].setValue(this.embarque.embarqueDesembarque);
 
     });
   }
@@ -57,15 +52,6 @@ export class EditarEmbarqueDesembarqueComponent implements OnInit {
     this.service.getCollectionData('viagens').subscribe((data) => {
 
       this.viagens = data;
-
-    });
-
-  }
-
-  getClientes(){
-    this.service.getCollectionData('clientes').subscribe((data) => {
-
-      this.clientes = data;
 
     });
 

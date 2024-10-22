@@ -19,13 +19,13 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgb(255, 217, 0); /* Amarelo com leve transparência */
+  background-color: rgb(255, 217, 0);
   color: white;
   font-weight: bold;
   font-size: 16px;
   padding: 5px 10px;
-  width: 130px; /* Largura ajustável conforme necessário */
-  white-space: nowrap; /* Evita quebra de linha */
+  width: 130px;
+  white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,10 +44,10 @@
 .box-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Para empurrar o botão para o fundo */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 240px; /* Altura fixa */
+  height: 240px;
   background-color: rgb(255, 255, 255);
   margin-left: 20px;
   margin-right: 20px;
@@ -56,13 +56,14 @@
   border-top-right-radius: 0px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   margin-top: -12px;
-  padding: 10px; /* Adicione um padding para espaçamento */
+  padding: 10px;
 }
 
 .card-content {
-  flex-grow: 1; /* Para ocupar o espaço restante */
+  flex-grow: 1;
   display: flex;
-  flex-direction: column; /* Para empurrar o botão para o fundo */
+  flex-direction: column;
+  align-items: center;
 }
 
 .box-card h4 {
@@ -72,7 +73,7 @@
 
 .box-card button {
   width: 100%;
-  background-color: rgb(19, 148, 223);
+  background-color: #0B5A82;
   border: none;
   border-radius: 5px;
   height: 40px;

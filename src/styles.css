@@ -1,5 +1,6 @@
 html, body{
-  background-color: rgb(25, 22, 41);
+  background-color:  #ffffff;
+  overflow-x: hidden;
 }
 
 .ql-snow .ql-fill {

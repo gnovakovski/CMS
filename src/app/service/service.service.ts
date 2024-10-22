@@ -26,9 +26,9 @@ export class ServiceService {
   getCollectionData(collectionName: string): Observable<any[]> {
     return this.firestore.collection(collectionName).snapshotChanges().pipe(
       map(actions => actions.map(a => {
-        const data = a.payload.doc.data() as any;  // Tipagem como 'any' para simplificação
-        const id = a.payload.doc.id;  // ID do documento
-        return { id, ...data };  // Retorna o ID junto com os dados
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
       }))
     );
   }

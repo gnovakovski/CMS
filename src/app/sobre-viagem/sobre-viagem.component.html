@@ -1,3 +1,18 @@
-<div class="header-sobre">
+<app-header-site></app-header-site>
 
+<div class="container">
+  <div class="body-viagem">
+    <h1>
+      {{viagem.titulo}}
+    </h1>
+    <div class="d-flex align-center justify-content-center" style="gap: 10px">
+        <button style="background-color: white; border: none;"><img src="assets/arrow.png" style="width: 20px; transform: rotate(180deg);" alt=""></button>
+      <div>
+        <img [src]="foto1" class="img">
+      </div>
+      <button style="background-color: white; border: none;"><img src="assets/arrow.png" style="width: 20px;" alt=""></button>
+    </div>
+  </div>
 </div>
+
+<app-footer></app-footer>

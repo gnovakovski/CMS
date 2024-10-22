@@ -217,7 +217,7 @@ getFornecedores(){
      this.service.update(this.viagemId, this.form.value, "viagens")
        .then((resp) => {
 
-         this.toastr.success('Viagem editada com sucesso!', 'Editar viagem');
+         this.toastr.success('Produto editada com sucesso!', 'Editar produto');
 
         if(this.file1){
           this.upload(this.file1, this.form.value.foto1);

@@ -149,7 +149,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'embarque-desembarque/editar-embarque-desembarque',
+    path: 'embarque-desembarque/editar-embarque-desembarque/:id',
     component: EditarEmbarqueDesembarqueComponent
   },
 
