@@ -139,6 +139,14 @@
       </div>
     </div>
 
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label style="padding-left: 80px;" for="">Embarques e desembarques</label>
+        <select2 placeholder="Selecione uma ou mais opções" style="width: 1200px; padding-left: 80px; padding-right: 80px;" [data]="data" [value]="value" (update)="update($event)" multiple="true" formControlName="embarque">
+        </select2>
+      </div>
+    </div>
+
     <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 20px; gap: 10px; margin-bottom: 20px;">
       <div style="display: flex; align-items: center; gap: 10px ;">
         <label class="switch">

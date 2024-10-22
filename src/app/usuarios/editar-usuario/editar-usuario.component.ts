@@ -79,10 +79,7 @@ export class EditarUsuarioComponent implements OnInit {
     this.service.update(this.usuarioId, this.form.value, "usuarios")
       .then((resp) => {
 
-        this.toastr.success('Usuário editado com sucesso!', 'Editar usuário');
-
-        console.log(this.senha)
-        console.log(this.form.value.senha)
+        this.toastr.success('Usuário editado com sucesso! Se você alterou seu próprio nível de acesso, por favor, logue novamente no sistema', 'Editar usuário');
 
         if(this.senha !== this.form.value.senha){
 

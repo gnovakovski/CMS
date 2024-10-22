@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../../service/service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Select2Option } from 'ng-select2-component';
 
 @Component({
   selector: 'app-editar-viagem',
@@ -29,6 +30,8 @@ export class EditarViagemComponent implements OnInit {
   public file5: any;
 
   public viagemId: any;
+
+  public embarque: any;
 
   public fornecedores: any;
 
@@ -57,6 +60,10 @@ export class EditarViagemComponent implements OnInit {
     ]
   };
 
+  data: Select2Option[] = [];
+
+  public value: any = 1;
+
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
 
   ngOnInit() {
@@ -84,6 +91,7 @@ export class EditarViagemComponent implements OnInit {
       documentos: '',
       aereo: '',
       rodoviario: '',
+      embarque: '',
       ativo: '',
       foto1: '',
       foto2: '',
@@ -96,6 +104,7 @@ export class EditarViagemComponent implements OnInit {
   this.getViagemById(this.viagemId);
 
   this.getFornecedores();
+  this.getEmbarque();
 
 }
 
@@ -132,6 +141,7 @@ getFornecedores(){
       this.form.controls['aereo'].setValue(this.viagem.aereo);
       this.form.controls['rodoviario'].setValue(this.viagem.rodoviario);
       this.form.controls['ativo'].setValue(this.viagem.ativo);
+      this.form.controls['embarque'].setValue(this.viagem.embarque);
 
       this.form.controls['foto1'].setValue(this.viagem.foto1);
       this.form.controls['foto2'].setValue(this.viagem.foto2);
@@ -183,6 +193,22 @@ getFornecedores(){
 
 
     });
+  }
+
+  getEmbarque(){
+    this.service.getCollectionData('embarque-desembarque').subscribe((data) => {
+
+      this.embarque = data
+
+      this.data = this.embarque.map((embarqueDesembarque: any) => {
+        return { value: embarqueDesembarque.EnderecoEmbarqueDesembarque, label: embarqueDesembarque.EnderecoEmbarqueDesembarque };
+      });
+    });
+
+  }
+
+  update(event: any) {
+    console.log('Selecionado:', event);
   }
 
   onSubmit() {

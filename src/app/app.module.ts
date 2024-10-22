@@ -45,6 +45,9 @@ import { NivelAcessoComponent } from './nivel-acesso/nivel-acesso.component';
 import { CadastrarUsuarioComponent } from './usuarios/cadastrar-usuario/cadastrar-usuario.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
 import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
+import { CadastrarNivelAcessoComponent } from './nivel-acesso/cadastrar-nivel-acesso/cadastrar-nivel-acesso.component';
+import { Select2Module } from 'ng-select2-component';
+import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/editar-nivel-acesso.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +81,9 @@ import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-d
       UsuariosComponent,
       NivelAcessoComponent,
       CadastrarUsuarioComponent,
-      EditarUsuarioComponent
+      EditarUsuarioComponent,
+      CadastrarNivelAcessoComponent,
+      EditarNivelAcessoComponent
    ],
   imports: [
     BrowserModule,
@@ -94,7 +99,8 @@ import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-d
     ToastrModule.forRoot(),
     HttpClientModule,
     NgbModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    Select2Module
   ],
   providers: [
 

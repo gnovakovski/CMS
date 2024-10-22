@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ServiceService } from '../../service/service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Select2Option } from 'ng-select2-component';
 
 @Component({
   selector: 'app-cadastrar-viagem',
@@ -26,6 +27,7 @@ export class CadastrarViagemComponent implements OnInit {
   public file5: any;
 
   public fornecedores: any;
+  public embarque: any;
 
   content = '';
 
@@ -51,6 +53,10 @@ export class CadastrarViagemComponent implements OnInit {
       ['link', 'image', 'video']                         // link and image, video
     ]
   };
+
+  data: Select2Option[] = [];
+
+  public value: any = 1;
 
   constructor(private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
 
@@ -78,6 +84,7 @@ export class CadastrarViagemComponent implements OnInit {
       aereo: '',
       rodoviario: '',
       ativo: '',
+      embarque: '',
       foto1: `minha-imagem1-${new Date().getTime()}`,
       foto2: `minha-imagem2-${new Date().getTime()}`,
       foto3: `minha-imagem3-${new Date().getTime()}`,
@@ -86,6 +93,7 @@ export class CadastrarViagemComponent implements OnInit {
     });
 
     this.getFornecedores();
+    this.getEmbarque();
 
   }
 
@@ -130,7 +138,7 @@ export class CadastrarViagemComponent implements OnInit {
       this.service.post(this.form.value, "viagens")
         .then((resp) => {
           console.log(resp)
-          this.toastr.success('Viagem cadastrada com sucesso!', 'Cadastrar viagem');
+          this.toastr.success('Produto cadastrado com sucesso!', 'Cadastrar produto');
 
           if(this.file1){
             this.upload(this.file1, this.form.value.foto1);
@@ -152,7 +160,7 @@ export class CadastrarViagemComponent implements OnInit {
             this.upload(this.file5, this.form.value.foto5);
           }
 
-          this.router.navigate(['/viagens']);
+          this.router.navigate(['/produtos']);
         })
         .catch((error) => {
           this.toastr.error(error, 'Erro');
@@ -182,6 +190,22 @@ export class CadastrarViagemComponent implements OnInit {
   removeFoto5(){
     this.foto5 = "";
     this.file5 = "";
+  }
+
+  getEmbarque(){
+    this.service.getCollectionData('embarque-desembarque').subscribe((data) => {
+
+      this.embarque = data
+
+      this.data = this.embarque.map((embarqueDesembarque: any) => {
+        return { value: embarqueDesembarque.EnderecoEmbarqueDesembarque, label: embarqueDesembarque.EnderecoEmbarqueDesembarque };
+      });
+    });
+
+  }
+
+  update(event: any) {
+    console.log('Selecionado:', event);
   }
 
   addFoto1(event: any): void {

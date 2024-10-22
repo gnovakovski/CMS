@@ -20,6 +20,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { NivelAcessoComponent } from './nivel-acesso/nivel-acesso.component';
 import { CadastrarUsuarioComponent } from './usuarios/cadastrar-usuario/cadastrar-usuario.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
+import { CadastrarNivelAcessoComponent } from './nivel-acesso/cadastrar-nivel-acesso/cadastrar-nivel-acesso.component';
+import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/editar-nivel-acesso.component';
 import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
 
 const routes: Routes = [
@@ -66,9 +68,20 @@ const routes: Routes = [
   },
 
   {
-    path: 'nivel-acesso',
+    path: 'niveis-acesso',
     component: NivelAcessoComponent
   },
+
+  {
+    path: 'niveis-acesso/cadastrar-nivel-acesso',
+    component: CadastrarNivelAcessoComponent
+  },
+
+  {
+    path: 'niveis-acesso/editar-nivel-acesso/:id',
+    component: EditarNivelAcessoComponent
+  },
+
 
   {
     path: 'usuarios/cadastrar-usuario',
