@@ -47,9 +47,10 @@ import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario
 import { CadastrarNivelAcessoComponent } from './nivel-acesso/cadastrar-nivel-acesso/cadastrar-nivel-acesso.component';
 import { Select2Module } from 'ng-select2-component';
 import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/editar-nivel-acesso.component';
+import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       LoginComponent,
       ViagensComponent,
@@ -81,7 +82,8 @@ import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/e
       CadastrarUsuarioComponent,
       EditarUsuarioComponent,
       CadastrarNivelAcessoComponent,
-      EditarNivelAcessoComponent
+      EditarNivelAcessoComponent,
+      SobreViagemComponent
    ],
   imports: [
     BrowserModule,

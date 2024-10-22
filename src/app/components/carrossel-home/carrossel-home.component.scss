@@ -1,4 +1,4 @@
-.container-cards{
+.container-cards {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,53 +8,78 @@
   margin-top: 20px;
 }
 
-.content-card{
+.content-card {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 320px;
-
 }
 
-.content-card img{
-  width: 100%;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 217, 0); /* Amarelo com leve transparência */
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 5px 10px;
+  width: 130px; /* Largura ajustável conforme necessário */
+  white-space: nowrap; /* Evita quebra de linha */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.content-card img {
+  width: 320px;
+  height: 230px;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.box-card{
+.box-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Para empurrar o botão para o fundo */
+  align-items: center;
   width: 100%;
-  height: 240px;
+  height: 240px; /* Altura fixa */
   background-color: rgb(255, 255, 255);
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   margin-top: -12px;
+  padding: 10px; /* Adicione um padding para espaçamento */
+}
+
+.card-content {
+  flex-grow: 1; /* Para ocupar o espaço restante */
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 20px;
+  flex-direction: column; /* Para empurrar o botão para o fundo */
 }
 
-.box-card h4{
- text-align: center;
- margin-top: 10px;
+.box-card h4 {
+  text-align: center;
+  margin-top: 10px;
 }
 
-.box-card button{
+.box-card button {
   width: 100%;
   background-color: rgb(19, 148, 223);
   border: none;
   border-radius: 5px;
   height: 40px;
   color: white;
- }
+}
 
- .carousel{
+.carousel {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -62,18 +87,18 @@
   margin-bottom: 40px;
 }
 
-.content-carrossel{
+.content-carrossel {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-button{
+button {
   border: none;
   background-color: transparent;
 }
 
-button img{
+button img {
   width: 20px;
 }

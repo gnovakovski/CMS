@@ -24,7 +24,7 @@ export class ViagensComponent implements OnInit {
   }
 
   getViagens(){
-    this.service.getCollectionData('viagens').pipe(take(1)).subscribe((data) => {
+    this.service.getCollectionData('viagens').subscribe((data) => {
 
       this.viagens = data;
 

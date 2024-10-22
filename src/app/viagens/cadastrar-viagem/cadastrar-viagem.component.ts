@@ -85,6 +85,7 @@ export class CadastrarViagemComponent implements OnInit {
       rodoviario: '',
       ativo: '',
       embarque: '',
+      carrossel: '',
       foto1: `minha-imagem1-${new Date().getTime()}`,
       foto2: `minha-imagem2-${new Date().getTime()}`,
       foto3: `minha-imagem3-${new Date().getTime()}`,

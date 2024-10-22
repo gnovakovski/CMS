@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../../service/service.service';
 
 @Component({
   selector: 'app-carrossel-home',
@@ -7,75 +8,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarrosselHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ServiceService) { }
 
   public slideConfig: any;
 
   ngOnInit() {
-
     this.slideConfig = {
-      slidesToShow: 3,
+      slidesToShow: 3,  // Exibe 3 cards em telas grandes
       slidesToScroll: 1,
       autoplay: false,
       autoplaySpeed: 1000,
-      arrows: false,
+      arrows: true, // Ativando as setas de navegação
       dots: false,
       pauseOnHover: false,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 3,
-          },
-        },
-        {
-          breakpoint: 520,
-          settings: {
-            slidesToShow: 1,
-          },
-        },
-      ],
     };
 
+    this.getViagensTipoAereo();
   }
 
-  public cards: any[] = [
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
+  public viagens: any;
 
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
+  carregandoImagens: boolean = true;
 
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
+  getViagensTipoAereo() {
+    this.service.getCollectionData('viagens').subscribe((data) => {
+      const viagensAereas = data.filter((item: any) =>
+        item.tipo_negocio === 'Aéreo' && item.carrossel !== false
+      );
 
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
+      const totalViagens = viagensAereas.length;
+      let imagensCarregadas = 0;
 
-    {
-      title: 'Parque Terra Magica Florybal com Lets Tur',
-      value: '350,00',
-      condition: '5x de R$ 70,00 sem juros',
-      date: '13/10/2024 a 13/10/2024'
-    },
+      this.viagens = viagensAereas.map((item: any) => {
+        return {
+          ...item,
+          foto: '',
+        };
+      });
 
+      this.viagens.forEach((item: any) => {
+        this.service.getImageUrl(item.foto1).subscribe((url) => {
+          item.foto = url;
+          imagensCarregadas++;
 
-  ];
-
+          if (imagensCarregadas === totalViagens) {
+            this.carregandoImagens = false;
+          }
+        });
+      });
+    });
+  }
 }

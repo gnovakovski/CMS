@@ -142,6 +142,7 @@ getFornecedores(){
       this.form.controls['rodoviario'].setValue(this.viagem.rodoviario);
       this.form.controls['ativo'].setValue(this.viagem.ativo);
       this.form.controls['embarque'].setValue(this.viagem.embarque);
+      this.form.controls['carrossel'].setValue(this.viagem.carrossel);
 
       this.form.controls['foto1'].setValue(this.viagem.foto1);
       this.form.controls['foto2'].setValue(this.viagem.foto2);

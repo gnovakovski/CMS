@@ -22,6 +22,7 @@ import { CadastrarUsuarioComponent } from './usuarios/cadastrar-usuario/cadastra
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
 import { CadastrarNivelAcessoComponent } from './nivel-acesso/cadastrar-nivel-acesso/cadastrar-nivel-acesso.component';
 import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/editar-nivel-acesso.component';
+import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
 
 const routes: Routes = [
 
@@ -81,6 +82,10 @@ const routes: Routes = [
     component: EditarNivelAcessoComponent
   },
 
+  {
+    path: 'inicio/:id',
+    component: SobreViagemComponent
+  },
 
   {
     path: 'usuarios/cadastrar-usuario',
