@@ -23,6 +23,7 @@ import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario
 import { CadastrarNivelAcessoComponent } from './nivel-acesso/cadastrar-nivel-acesso/cadastrar-nivel-acesso.component';
 import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/editar-nivel-acesso.component';
 import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
+import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
 
 const routes: Routes = [
 
@@ -145,7 +146,12 @@ const routes: Routes = [
   {
     path: 'embarque-desembarque/cadastrar-embarque-desembarque',
     component: CadastrarEmbarqueComponent
-  }
+  },
+
+  {
+    path: 'embarque-desembarque/editar-embarque-desembarque',
+    component: EditarEmbarqueDesembarqueComponent
+  },
 
 ];
 

@@ -44,6 +44,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { NivelAcessoComponent } from './nivel-acesso/nivel-acesso.component';
 import { CadastrarUsuarioComponent } from './usuarios/cadastrar-usuario/cadastrar-usuario.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
+import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
 import { CadastrarNivelAcessoComponent } from './nivel-acesso/cadastrar-nivel-acesso/cadastrar-nivel-acesso.component';
 import { Select2Module } from 'ng-select2-component';
 import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/editar-nivel-acesso.component';
@@ -69,6 +70,7 @@ import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
       CpfMaskDirective,
       CepMaskDirective,
       CadastrarEmbarqueComponent,
+      EditarEmbarqueDesembarqueComponent,
       EditarClienteComponent,
       FornecedoresComponent,
       CadastrarFornecedorComponent,
