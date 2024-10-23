@@ -17,6 +17,7 @@ export class SobreViagemComponent implements OnInit {
   public viagemId: any;
 
   public valor: any;
+  public contato: any;
 
   fotos: Foto[] = [];
 
@@ -28,6 +29,19 @@ export class SobreViagemComponent implements OnInit {
 
     this.getViagemById(this.viagemId)
 
+    this.getContatoWhats();
+
+  }
+
+  whats(){
+    window.location.href = this.contato.link
+  }
+
+  getContatoWhats(){
+    this.service.getById("T8oT1pxOSCwAIXPTMYNZ", "contato_whats").subscribe(data => {
+      this.contato = data;
+
+    });
   }
 
   getViagemById(id: any){
@@ -38,7 +52,7 @@ export class SobreViagemComponent implements OnInit {
      if(this.viagem.foto1){
       this.service.getImageUrl(this.viagem.foto1).subscribe((url) => {
 
-        this.fotos.push({ file: data });
+        this.fotos.push({ file: url });
 
        });
      }
@@ -46,7 +60,7 @@ export class SobreViagemComponent implements OnInit {
      if(this.viagem.foto2){
       this.service.getImageUrl(this.viagem.foto2).subscribe((url) => {
 
-        this.fotos.push({ file: data });
+        this.fotos.push({ file: url });
 
        });
      }
@@ -54,7 +68,7 @@ export class SobreViagemComponent implements OnInit {
      if(this.viagem.foto3){
       this.service.getImageUrl(this.viagem.foto3).subscribe((url) => {
 
-        this.fotos.push({ file: data });
+        this.fotos.push({ file: url });
 
        });
      }
@@ -63,7 +77,7 @@ export class SobreViagemComponent implements OnInit {
      if(this.viagem.foto4){
       this.service.getImageUrl(this.viagem.foto4).subscribe((url) => {
 
-        this.fotos.push({ file: data });
+        this.fotos.push({ file: url });
 
        });
      }
@@ -72,10 +86,12 @@ export class SobreViagemComponent implements OnInit {
      if(this.viagem.foto5){
       this.service.getImageUrl(this.viagem.foto5).subscribe((url) => {
 
-        this.fotos.push({ file: data });
+        this.fotos.push({ file: url });
 
        });
      }
+
+     console.log(this.fotos)
 
     });
   }

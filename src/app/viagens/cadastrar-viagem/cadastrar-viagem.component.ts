@@ -113,7 +113,27 @@ export class CadastrarViagemComponent implements OnInit {
 
   }
 
+  formatarValor(valor: any){
+
+    valor = valor.replace(/[.,]/g, '');
+
+    let valorPreco = Number(valor)/ 100;
+
+    let valorPrecoFormatado = valorPreco.toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+     return valorPrecoFormatado;
+
+  }
+
   onSubmit() {
+
+    this.form.value.preco = this.formatarValor(this.form.value.preco);
+    this.form.value.markup = this.formatarValor(this.form.value.markup);
+    this.form.value.taxa_adm = this.formatarValor(this.form.value.taxa_adm);
+    this.form.value.valor_parcela = this.formatarValor(this.form.value.valor_parcela);
 
     if(!this.file1){
       this.form.controls['foto1'].setValue("");

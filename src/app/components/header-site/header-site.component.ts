@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { ServiceService } from '../../service/service.service';
 
 @Component({
   selector: 'app-header-site',
@@ -9,12 +10,15 @@ export class HeaderSiteComponent implements OnInit {
 
   public innerWidth: any;
   public menu: boolean = false;
+  public contato: any
 
-  constructor() { }
+  constructor(private service: ServiceService,) { }
 
   ngOnInit() {
 
     this.innerWidth = window.innerWidth;
+
+    this.getContatoWhats();
 
   }
 
@@ -27,5 +31,16 @@ export class HeaderSiteComponent implements OnInit {
 
     this.menu = !this.menu
 
+  }
+
+  whats(){
+    window.location.href = this.contato.link
+  }
+
+  getContatoWhats(){
+    this.service.getById("T8oT1pxOSCwAIXPTMYNZ", "contato_whats").subscribe(data => {
+      this.contato = data;
+
+    });
   }
 }
