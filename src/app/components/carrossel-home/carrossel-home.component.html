@@ -1,8 +1,4 @@
 <div *ngIf="!carregandoImagens" class="content-carrossel">
-  <button (click)="slickModal.slickPrev()" style="transform: rotate(180deg);">
-    <img src="assets/arrow.png" alt="">
-  </button>
-
   <ngx-slick-carousel #slickModal="slick-carousel" class="container" [config]="slideConfig" style="width: 1150px !important;">
     <div ngxSlickItem class="carousel" *ngFor="let card of viagens">
       <div class="content-card">
@@ -26,8 +22,4 @@
       </div>
     </div>
   </ngx-slick-carousel>
-
-  <button (click)="slickModal.slickNext()">
-    <img src="assets/arrow.png" alt="">
-  </button>
 </div>

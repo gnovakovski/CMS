@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service/service.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +17,12 @@ export class HeaderComponent implements OnInit {
   public dataRole: any;
   public currentUrl: string = '';
 
+  public form_link: any;
+
+  public contato: any;
+
+  modalRef: NgbModalRef | undefined;
+
   public roleProdutos: boolean = false;
   public roleClientes: boolean = false;
   public roleConf: boolean = false;
@@ -21,7 +30,8 @@ export class HeaderComponent implements OnInit {
   public roleVendas: boolean = false;
   public roleEmbarqueDesembarque: boolean = false;
 
-  constructor(private service: ServiceService, private router: Router, private location: Location) { }
+  constructor(private service: ServiceService, private router: Router, private location: Location, public formBuilder: FormBuilder, private toastr: ToastrService, public modalService: NgbModal) { }
+
 
   ngOnInit() {
 
@@ -33,6 +43,11 @@ export class HeaderComponent implements OnInit {
 
         this.getRole(localStorage.getItem('nivel-acesso'));
 
+        this.form_link = this.formBuilder.group({
+          link: '',
+        });
+
+
 
       } else {
         window.location.href = "login";
@@ -42,6 +57,36 @@ export class HeaderComponent implements OnInit {
       window.location.href = "login";
     }
 
+
+
+  }
+
+  openModal(contentModal: any, value: any) {
+    this.modalRef = this.modalService.open(contentModal, { size: 'md', ariaLabelledBy: 'modal-basic-title', centered: true, backdrop: true, keyboard: true });
+
+    if(value === "insta"){
+      this.getContatoInsta();
+    }else if(value === "whats"){
+      this.getContatoWhats();
+    }
+  }
+
+  getContatoWhats(){
+    this.service.getById("T8oT1pxOSCwAIXPTMYNZ", "contato_whats").subscribe(data => {
+      this.contato = data;
+
+      this.form_link.controls['link'].setValue(this.contato.link);
+
+    });
+  }
+
+  getContatoInsta(){
+    this.service.getById("PQXaQP4RhxIXSIGy3Z0l", "contato_insta").subscribe(data => {
+      this.contato = data;
+
+      this.form_link.controls['link'].setValue(this.contato.link);
+
+    });
   }
 
   getRole(role: any) {
@@ -84,6 +129,46 @@ export class HeaderComponent implements OnInit {
         console.log('Nenhuma role encontrada.');
       }
     });
+  }
+
+  fecharModal() {
+    if (this.modalRef) {
+      this.modalRef.close();
+    }
+  }
+
+  onSubmitWhats() {
+
+    this.service.update("T8oT1pxOSCwAIXPTMYNZ", this.form_link.value, "contato_whats")
+      .then((resp) => {
+        console.log(resp)
+        this.toastr.success('Link editado com sucesso!', 'Editar link');
+
+
+        if (this.modalRef) {
+          this.modalRef.close();
+        }
+      })
+      .catch((error) => {
+        this.toastr.error(error, 'Erro');
+      });
+  }
+
+  onSubmitInsta() {
+
+    this.service.update("PQXaQP4RhxIXSIGy3Z0l", this.form_link.value, "contato_insta")
+      .then((resp) => {
+        console.log(resp)
+        this.toastr.success('Link editado com sucesso!', 'Editar link');
+
+
+        if (this.modalRef) {
+          this.modalRef.close();
+        }
+      })
+      .catch((error) => {
+        this.toastr.error(error, 'Erro');
+      });
   }
 
   verificarRole(){

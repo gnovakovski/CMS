@@ -53,6 +53,7 @@ import { CarrosselHomeResponsive1Component } from './components/carrossel-home-r
 import { CarrosselHomeResponsive2Component } from './components/carrossel-home-responsive2/carrossel-home-responsive2.component';
 import { CarrosselHomeResponsive3Component } from './components/carrossel-home-responsive3/carrossel-home-responsive3.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { FooterComponent } from './components/footer/footer.component';
       CarrosselHomeResponsive1Component,
       CarrosselHomeResponsive2Component,
       CarrosselHomeResponsive3Component,
-      FooterComponent
+      FooterComponent,
+      ViagensLpComponent
    ],
   imports: [
     BrowserModule,

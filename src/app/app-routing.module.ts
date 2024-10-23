@@ -24,6 +24,7 @@ import { CadastrarNivelAcessoComponent } from './nivel-acesso/cadastrar-nivel-ac
 import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/editar-nivel-acesso.component';
 import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
 import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
+import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
 
 const routes: Routes = [
 
@@ -136,6 +137,11 @@ const routes: Routes = [
   {
     path: 'produtos/editar-produto/:id',
     component: EditarViagemComponent
+  },
+
+  {
+    path: ':produto',
+    component: ViagensLpComponent
   },
 
   {
