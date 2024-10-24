@@ -145,6 +145,31 @@ const routes: Routes = [
   },
 
   {
+    path: 'bate-e-volta/:id',
+    component: SobreViagemComponent
+  },
+
+  {
+    path: 'final-de-semana/:id',
+    component: SobreViagemComponent
+  },
+
+  {
+    path: 'Aereo/:id',
+    component: SobreViagemComponent
+  },
+
+  {
+    path: 'rodoviario/:id',
+    component: SobreViagemComponent
+  },
+
+  {
+    path: 'religioso/:id',
+    component: SobreViagemComponent
+  },
+
+  {
     path: 'embarque-desembarque',
     component: EmbarqueComponent
   },

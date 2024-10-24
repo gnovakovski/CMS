@@ -25,7 +25,7 @@
           <p>{{(card.data_ida | date:'dd-MM-yyyy') + ' a ' + (card.data_volta | date:'dd-MM-yyyy')}}</p>
           <p class="text-center">R$ {{card.preco}}<br>{{card.parcelamento}}</p>
         </div>
-        <button routerLink="/inicio/{{card.id}}">SAIBA MAIS SOBRE A VIAGEM</button>
+        <button routerLink="{{card.id}}">SAIBA MAIS SOBRE A VIAGEM</button>
       </div>
     </div>
   </div>

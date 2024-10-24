@@ -133,7 +133,16 @@ export class ServiceService {
   getViagemPorTipoNegocio(tipoNegocio: string): Observable<any[]> {
     return this.firestore
       .collection('viagens', ref => ref.where('tipo_negocio', '==', tipoNegocio))
-      .valueChanges(); // Ou .snapshotChanges() para incluir metadados
+      .snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(a => {
+            const data = a.payload.doc.data() as any;
+            const id = a.payload.doc.id;
+            return { id, ...data }; // Retorna o ID junto com os dados
+          })
+        )
+      );
   }
 
   changePassword(newPassword: string, currentPassword: string) {
