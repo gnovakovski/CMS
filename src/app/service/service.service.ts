@@ -130,6 +130,11 @@ export class ServiceService {
       );
   }
 
+  getViagemPorTipoNegocio(tipoNegocio: string): Observable<any[]> {
+    return this.firestore
+      .collection('viagens', ref => ref.where('tipo_negocio', '==', tipoNegocio))
+      .valueChanges(); // Ou .snapshotChanges() para incluir metadados
+  }
 
   changePassword(newPassword: string, currentPassword: string) {
     const user = this.afAuth.currentUser;
