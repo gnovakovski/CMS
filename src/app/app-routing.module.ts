@@ -4,7 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { ViagensComponent } from './viagens/viagens.component';
 import { CadastrarViagemComponent} from './viagens/cadastrar-viagem/cadastrar-viagem.component';
 import { ClientesComponent } from './clientes/clientes.component';
-import { EmbarqueComponent } from './embarque/embarque.component';
 import { CadastrarEmbarqueComponent } from './embarque/cadastrar-embarque/cadastrar-embarque.component'
 import { EditarViagemComponent } from './viagens/editar-viagem/editar-viagem.component';
 import { CadastrarClienteComponent } from './clientes/cadastrar-cliente/cadastrar-cliente.component';
@@ -25,6 +24,7 @@ import { EditarNivelAcessoComponent } from './nivel-acesso/editar-nivel-acesso/e
 import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
 import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
 import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
+import { EmbarqueComponent } from './embarque/embarque.component';
 
 const routes: Routes = [
 
@@ -67,6 +67,11 @@ const routes: Routes = [
   {
     path: 'usuarios',
     component: UsuariosComponent
+  },
+
+  {
+    path: 'embarque-desembarque',
+    component: EmbarqueComponent
   },
 
   {
@@ -145,8 +150,28 @@ const routes: Routes = [
   },
 
   {
-    path: 'embarque-desembarque',
-    component: EmbarqueComponent
+    path: 'bate-e-volta/:id',
+    component: SobreViagemComponent
+  },
+
+  {
+    path: 'final-de-semana/:id',
+    component: SobreViagemComponent
+  },
+
+  {
+    path: 'Aereo/:id',
+    component: SobreViagemComponent
+  },
+
+  {
+    path: 'rodoviario/:id',
+    component: SobreViagemComponent
+  },
+
+  {
+    path: 'religioso/:id',
+    component: SobreViagemComponent
   },
 
   {
