@@ -12,6 +12,8 @@ export class ClientesComponent implements OnInit {
   public clientes: any
   public clienteById: any
 
+  public teste: any
+
   constructor(private service: ServiceService, private toastr: ToastrService) {}
 
 
