@@ -9,6 +9,7 @@ import { ServiceService } from '../service/service.service';
 export class EmbarqueComponent implements OnInit {
 
   public embarque: any
+  public teste: any
 
   public loading: boolean = false
   toastr: any;
