@@ -47,8 +47,6 @@ export class HeaderComponent implements OnInit {
           link: '',
         });
 
-
-
       } else {
         window.location.href = "login";
       }
@@ -56,8 +54,6 @@ export class HeaderComponent implements OnInit {
     } else {
       window.location.href = "login";
     }
-
-
 
   }
 

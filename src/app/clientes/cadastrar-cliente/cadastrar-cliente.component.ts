@@ -62,7 +62,7 @@ export class CadastrarClienteComponent {
 
      this.service.post(this.form.value, "clientes")
        .then((resp) => {
-         console.log(resp)
+
          this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastrar cliente');
 
          this.fotos.forEach((item: any) => {
