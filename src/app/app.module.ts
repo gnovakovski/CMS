@@ -54,9 +54,10 @@ import { CarrosselHomeResponsive2Component } from './components/carrossel-home-r
 import { CarrosselHomeResponsive3Component } from './components/carrossel-home-responsive3/carrossel-home-responsive3.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
+import { Banners_homeComponent } from './banners_home/banners_home.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       LoginComponent,
       ViagensComponent,
@@ -95,7 +96,8 @@ import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
       CarrosselHomeResponsive2Component,
       CarrosselHomeResponsive3Component,
       FooterComponent,
-      ViagensLpComponent
+      ViagensLpComponent,
+      Banners_homeComponent
    ],
   imports: [
     BrowserModule,

@@ -388,8 +388,7 @@ getFornecedores(){
   }
 
   upload(file: any, name: any): void {
-    console.log(file, "FILE")
-    console.log(name, "NAME")
+
     if (file) {
       const fileName = name;
       this.service.uploadImage(file, fileName).subscribe((downloadUrl) => {
