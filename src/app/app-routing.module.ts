@@ -25,6 +25,7 @@ import { SobreViagemComponent } from './sobre-viagem/sobre-viagem.component';
 import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-desembarque/editar-embarque-desembarque.component';
 import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
 import { EmbarqueComponent } from './embarque/embarque.component';
+import { Banners_homeComponent } from './banners_home/banners_home.component';
 
 const routes: Routes = [
 
@@ -72,6 +73,11 @@ const routes: Routes = [
   {
     path: 'embarque-desembarque',
     component: EmbarqueComponent
+  },
+
+  {
+    path: 'banners-home',
+    component: Banners_homeComponent
   },
 
   {

@@ -19,6 +19,8 @@ export class CadastrarVendaComponent implements OnInit {
 
   ngOnInit() {
 
+
+
     this.getViagens();
     this.getClientes();
 
@@ -30,6 +32,7 @@ export class CadastrarVendaComponent implements OnInit {
       cliente: '',
       status_pagamento: '',
       valor: '',
+      vendidoPor: localStorage.getItem('user'),
     });
 
   }

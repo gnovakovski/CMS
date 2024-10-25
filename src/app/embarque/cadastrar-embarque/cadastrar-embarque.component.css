@@ -1,5 +1,4 @@
 .content-cadastro{
-  background-color:  #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +10,6 @@
   align-items: center;
   justify-content: center;
   padding-top: 30px;
-  background-color:  white;
   color: black;
   font-size: 36px;
   font-weight: bold;
