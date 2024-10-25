@@ -74,6 +74,7 @@ export class LoginComponent implements OnInit {
         this.login(email.email);
 
         localStorage.setItem('nivel-acesso', email.nivel_acesso);
+        localStorage.setItem('user', login.user);
 
       } else {
         console.log('Nenhuma pessoa encontrada com esse email.');

@@ -183,6 +183,7 @@ export class HeaderComponent implements OnInit {
       .then(() => {
         localStorage.removeItem('token-adm');
         localStorage.removeItem('nivel-acesso');
+        localStorage.removeItem('user');
         window.location.href = "login";
       })
       .catch((error) => {
