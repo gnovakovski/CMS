@@ -12,21 +12,22 @@
 <div class="container d-flex align-center justify-content-center">
   <div class="body-viagem">
 
-    <div class="box-valor">
-      <strong style="font-size: 30px;">R$ {{viagem.preco}}</strong>
-      <div>
-        Até <strong>{{viagem.parcelamento}} de R${{viagem.valor_parcela}}</strong> sem juros
-      </div>
-      <div>
-        {{viagem.data_ida | date:'dd/MM/yyyy'}} a {{viagem.data_volta | date:'dd/MM/yyyy'}}
-      </div>
-      <button class="button_whats" (click)="whats()"><img src="assets/icon_whats.png" style="width: 50px;"> SAIBA MAIS</button>
-    </div>
-
     <div class="text-infos">
       <div class="info-section">
         <h1 style="font-weight: bold; margin-bottom: 20px;">Sobre o destino</h1>
+        <div style="display: flex;">
         <div style="margin-bottom: 40px;" [innerHTML]="viagem.sobre_destino"></div>
+        <div class="box-valor">
+          <strong style="font-size: 30px;">R$ {{viagem.preco}}</strong>
+          <div>
+            Até <strong>{{viagem.parcelamento}} de R${{viagem.valor_parcela}}</strong> sem juros
+          </div>
+          <div>
+            {{viagem.data_ida | date:'dd/MM/yyyy'}} a {{viagem.data_volta | date:'dd/MM/yyyy'}}
+          </div>
+          <button class="button_whats" (click)="whats()"><img src="assets/icon_whats.png" style="width: 50px;"> SAIBA MAIS</button>
+        </div>
+      </div>
         <hr style="width: 100%; height: 2px; background-color: black; opacity: 9;">
         <h1 style="font-weight: bold; margin-bottom: 20px;">Roteiro</h1>
         <div style="margin-bottom: 40px;" [innerHTML]="viagem.roteiro"></div>
