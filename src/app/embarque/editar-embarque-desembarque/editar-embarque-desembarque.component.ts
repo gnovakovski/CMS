@@ -59,7 +59,7 @@ export class EditarEmbarqueDesembarqueComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/embarque-desembarque']);
+    this.router.navigate(['/administrador/embarque-desembarque']);
 
   }
   editar(){
@@ -69,7 +69,7 @@ export class EditarEmbarqueDesembarqueComponent implements OnInit {
 
           this.toastr.success('Embarque editado com sucesso!', 'Editar embarque');
 
-         this.router.navigate(['/embarque-desembarque']);
+         this.router.navigate(['/administrador/embarque-desembarque']);
         })
         .catch((error) => {
           this.toastr.error(error, 'Erro');

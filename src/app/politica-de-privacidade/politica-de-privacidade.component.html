@@ -1,0 +1,67 @@
+<div style="display: flex; align-items: center; flex-direction: column; justify-content: space-between; height: 100%;">
+  <div class="header" *ngIf="innerWidth > 881">
+    <div routerLink="/">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+    <div class="menus-header">
+      <a style="cursor: pointer; color: white; text-decoration: none;" (click)="voltar()">
+        Voltar
+      </a>
+    </div>
+    <div style="opacity: 0;">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+  
+  </div>
+  
+  <div class="header-responsive" *ngIf="innerWidth < 882">
+    <div routerLink="/">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+    <a style="cursor: pointer; color: white; text-decoration: none;" (click)="voltar()">
+      Voltar
+    </a>
+  </div>
+  
+<div style="display: flex; align-items: center; flex-direction: column;">
+  <div class="content-body container">
+    <h2>Política de Privacidade</h2>
+  </div>
+  
+  <div class="content-body container">
+    <h5 style="text-align: justify;">A CENTRO OPERADORA tem o compromisso de respeitar a sua privacidade e reconhecer que 
+      você tem necessidade de proteção e administração adequada de todas as informações pessoais que possam lhe identificar. 
+      A CENTRO OPERADORA estabeleceu estas Políticas de Privacidade para que você perceba o cuidado que pretendemos dispensar a estas informações.
+      <br>
+      <br>
+      O termo Informações Pessoais significa qualquer informação que puder ser usada para identificar um indivíduo, incluindo, sem limitação, nome e 
+      sobrenome, um endereço residencial ou outro endereço físico, um endereço eletrônico (e-mail) ou outra informação para contato, seja no trabalho 
+      ou residência.
+      <br>
+      <br>
+      A CENTRO OPERADORA não comercializará suas informações pessoais. As informações coletadas serão guardadas com segurança e não serão transferidas 
+      a terceiros ou usadas para finalidades diferentes daquelas para as quais foram coletadas, exceto se expressamente autorizado pelo cliente ou por 
+      determinação legal ou judicial.
+      <br>
+      <br>
+      As informações solicitadas são as mínimas necessárias à realização e ao aprimoramento dos serviços prestados, e ficam armazenados em nosso banco 
+      de dados para fins estatísticos e de relacionamento com os mesmos.
+      <br>
+      <br>
+      O acesso às informações coletadas é restrito aos colaboradores, ao pessoal autorizado que são qualificados para desempenhar as funções inerentes a 
+      contatos e realizações de negócios via internet.
+      <br>
+      <br>
+      O usuário garante a veracidade e exatidão dos dados pessoais que fornecer neste site, pelo que assume a correspondente responsabilidade. Não 
+      assumimos qualquer responsabilidade no caso da inexatidão dos dados pessoais introduzidos pelo usuário, omissão de informação relevante, ou 
+      inserção de dados falsos que possam induzir um erro sobre o usuário.
+      <br>
+      <br>
+      O usuário que introduzir seus dados pessoais identificáveis poderá, a qualquer momento, solicitar que lhe seja informado o conteúdo desses dados, 
+      podendo, inclusive, realizar retificações que julgue conveniente, bastando, para tanto, fazê-las através de seu próprio cadastro no site.
+      </h5>
+  </div>
+</div>
+  
+  <app-footer style="margin-top: 20px;"></app-footer>
+</div>

@@ -1,0 +1,59 @@
+<div style="display: flex; align-items: center; flex-direction: column; justify-content: space-between; height: 100%;">
+  <div class="header" *ngIf="innerWidth > 881">
+    <div routerLink="/">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+    <div class="menus-header">
+      <a style="cursor: pointer; color: white; text-decoration: none;" (click)="voltar()">
+        Voltar
+      </a>
+    </div>
+    <div style="opacity: 0;">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+  
+  </div>
+  
+  <div class="header-responsive" *ngIf="innerWidth < 882">
+    <div routerLink="/">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+    <a style="cursor: pointer; color: white; text-decoration: none;" (click)="voltar()">
+      Voltar
+    </a>
+  </div>
+  
+<div style="display: flex; align-items: center; flex-direction: column;">
+  <div class="content-body container">
+    <h2>Segurança</h2>
+  </div>
+  
+  <div class="content-body container">
+    <h5 style="text-align: justify;">Estamos conscientes da sua preocupação com a segurança ao adquirir produtos pela internet, 
+      por isso todas as nossas transações são realizadas através de página segura e são utilizados diferentes mecanismos para proteger 
+      a informação que você acessa no nosso site.
+      <br>
+      <br>
+      Os servidores onde nosso site esta hospedado contam com um software (SSL) que é o principal na indústria das transações do comércio 
+      eletrônico e que permite criptografar a informação que você acessa em nossa página.
+      <br>
+      <br>
+      Esta criptografia protege todos os dados acessados em nosso site.
+      <br>
+      <br>
+      Ao acessar as informações do sistema "minha conta", você poderá contar com a segurança de um firewall, onde todos seus dados serão 
+      protegidos, impedindo o acesso por parte de outras pessoas alheias. Seus dados são utilizados somente por nós com a finalidade de 
+      simplificar suas compras futuras, sua navegação e para envio de informativos por e-mail.
+      <br>
+      <br>
+      Pedimos que, para sua própria segurança, por nenhum motivo compartilhe sua senha.
+      <br>
+      <br>
+      ATENÇÃO: No caso das compras envolvendo cartões de crédito, a CENTRO OPERADORA não manterá armazenado o número de seu cartão de crédito, 
+      por isso, sempre será necessário informar os dados em todas as compras.
+      </h5>
+  </div>
+</div>
+  
+  <app-footer style="margin-top: 20px;"></app-footer>
+</div>

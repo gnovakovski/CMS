@@ -4,31 +4,31 @@
   </div>
   <div class="menus-header">
     <a style="cursor: pointer; color: white; text-decoration: none;" href="/final-de-semana">
-      Final de Semana
+      FINAL DE SEMANA
     </a>
     <a style="cursor: pointer; color: white; text-decoration: none;" href="/bate-e-volta">
-      Bate e Volta
+      BATE E VOLTA
     </a>
     <a style="cursor: pointer; color: white; text-decoration: none;" href="/Aereo">
-      Aéreo
+      AÉREO
     </a>
     <a style="cursor: pointer; color: white; text-decoration: none;" href="/rodoviario">
-      Rodoviário
+      RODOVIÁRIO
     </a>
     <a style="cursor: pointer; color: white; text-decoration: none;" href="/religioso">
-      Religioso
+      RELIGIOSO
     </a>
   </div>
   <div class="content-button-header">
-    <p style="color: white; margin: 0;">Entre em contato por e-mail ou WhatsApp: contato&#64;centroturismo.com.br</p>
-    <img src="assets/whatsbranco.png" style="width: 45px; cursor: pointer;" (click)="whats()">
-    <button routerLink="/login">ÁREA DO AGENTE</button>
+    <img src="assets/icon_whats.png" style="width: 65px; cursor: pointer;" (click)="whats()">
+    <img src="assets/icon_gmail.png" style="width: 35px; cursor: pointer; margin-left: -15px;" (click)="email()">
+    <button routerLink="/administrador/login">ÁREA DO AGENTE</button>
   </div>
 
 </div>
 
 <div class="header-responsive" *ngIf="innerWidth < 882">
-  <div>
+  <div routerLink="/">
     <img class="logo" src="assets/logo.png" alt="">
   </div>
   <div (click)="abrirMenu()">
@@ -37,23 +37,24 @@
 </div>
 
 <div class="menu" *ngIf="this.menu && innerWidth < 882">
-  <a style="cursor: pointer; color: white; text-decoration: none;" href="/final-de-semana">
-      Final de Semana
-    </a>
-    <a style="cursor: pointer; color: white; text-decoration: none;" href="/bate-e-volta">
-      Bate e Volta
-    </a>
-    <a style="cursor: pointer; color: white; text-decoration: none;" href="/Aereo">
-      Aéreo
-    </a>
-    <a style="cursor: pointer; color: white; text-decoration: none;" href="/rodoviario">
-      Rodoviário
-    </a>
-    <a style="cursor: pointer; color: white; text-decoration: none;" href="/religioso">
-      Religioso
-    </a>
+  <a style="cursor: pointer; color: white; text-decoration: none; padding-top: 10px;" href="/final-de-semana">
+    FINAL DE SEMANA
+  </a>
+  <a style="cursor: pointer; color: white; text-decoration: none;" href="/bate-e-volta">
+    BATE E VOLTA
+  </a>
+  <a style="cursor: pointer; color: white; text-decoration: none;" href="/Aereo">
+    AÉREO
+  </a>
+  <a style="cursor: pointer; color: white; text-decoration: none;" href="/rodoviario">
+    RODOVIÁRIO
+  </a>
+  <a style="cursor: pointer; color: white; text-decoration: none;" href="/religioso">
+    RELIGIOSO
+  </a>
   <div class="content-button-header">
     <img src="assets/icon_whats.png" style="width: 65px; cursor: pointer;" (click)="whats()">
-    <button routerLink="/login">ÁREA DO AGENTE</button>
+    <img src="assets/icon_gmail.png" style="width: 35px; cursor: pointer; margin-left: -15px;" (click)="email()">
+    <button routerLink="/administrador/login">ÁREA DO AGENTE</button>
   </div>
 </div>

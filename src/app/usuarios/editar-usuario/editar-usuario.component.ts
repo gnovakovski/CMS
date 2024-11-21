@@ -61,7 +61,7 @@ export class EditarUsuarioComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/usuarios']);
+    this.router.navigate(['/administrador/usuarios']);
 
   }
 
@@ -89,7 +89,7 @@ export class EditarUsuarioComponent implements OnInit {
 
         }
 
-       this.router.navigate(['/usuarios']);
+       this.router.navigate(['/administrador/usuarios']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');

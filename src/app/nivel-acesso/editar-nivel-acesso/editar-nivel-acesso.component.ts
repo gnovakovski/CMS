@@ -65,7 +65,7 @@ export class EditarNivelAcessoComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/niveis-acesso']);
+    this.router.navigate(['/administrador/niveis-acesso']);
 
   }
 
@@ -81,7 +81,7 @@ export class EditarNivelAcessoComponent implements OnInit {
         this.toastr.success('Nível de acesso editado com sucesso!', 'Editar nível de acesso');
 
 
-        this.router.navigate(['/niveis-acesso']);
+        this.router.navigate(['/administrador/niveis-acesso']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');

@@ -109,7 +109,7 @@ export class CadastrarViagemComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/produtos']);
+    this.router.navigate(['/administrador/produtos']);
 
   }
 
@@ -181,7 +181,7 @@ export class CadastrarViagemComponent implements OnInit {
             this.upload(this.file5, this.form.value.foto5);
           }
 
-          this.router.navigate(['/produtos']);
+          this.router.navigate(['/administrador/produtos']);
         })
         .catch((error) => {
           this.toastr.error(error, 'Erro');

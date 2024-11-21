@@ -33,7 +33,7 @@ export class CadastrarUsuarioComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/usuarios']);
+    this.router.navigate(['/administrador/usuarios']);
 
   }
 
@@ -62,7 +62,7 @@ export class CadastrarUsuarioComponent implements OnInit {
             });
 
 
-        this.router.navigate(['/usuarios']);
+        this.router.navigate(['/administrador/usuarios']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');

@@ -33,6 +33,10 @@ export class HeaderSiteComponent implements OnInit {
 
   }
 
+  email(){
+    window.location.href = "mailto:contato@centroturismo.com.br"
+  }
+
   whats(){
     window.location.href = this.contato.link
   }

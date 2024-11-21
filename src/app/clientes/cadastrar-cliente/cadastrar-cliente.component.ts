@@ -48,7 +48,7 @@ export class CadastrarClienteComponent {
 
   voltar(){
 
-    this.router.navigate(['/clientes']);
+    this.router.navigate(['/administrador/clientes']);
 
   }
 
@@ -71,7 +71,7 @@ export class CadastrarClienteComponent {
 
          });
 
-         this.router.navigate(['/clientes']);
+         this.router.navigate(['/administrador/clientes']);
        })
        .catch((error) => {
          this.toastr.error(error, 'Erro');

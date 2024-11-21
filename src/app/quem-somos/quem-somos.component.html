@@ -1,0 +1,46 @@
+<div style="display: flex; align-items: center; flex-direction: column; justify-content: space-between; height: 100%;">
+  <div class="header" *ngIf="innerWidth > 881">
+    <div routerLink="/">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+    <div class="menus-header">
+      <a style="cursor: pointer; color: white; text-decoration: none;" (click)="voltar()">
+        Voltar
+      </a>
+    </div>
+    <div style="opacity: 0;">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+  
+  </div>
+  
+  <div class="header-responsive" *ngIf="innerWidth < 882">
+    <div routerLink="/">
+      <img class="logo" src="assets/logo.png" alt="">
+    </div>
+    <a style="cursor: pointer; color: white; text-decoration: none;" (click)="voltar()">
+      Voltar
+    </a>
+  </div>
+  
+<div style="display: flex; align-items: center; flex-direction: column;">
+  <div class="content-body container">
+    <h2>Quem Somos</h2>
+  </div>
+  
+  <div class="content-body container">
+    <h5 style="text-align: justify;">A Centro Operadora não só é uma empresa como também é um time, uma família. 
+      Trabalhamos desde 2017 com viagens, passeios para diversos cantos do país. 
+      Desde viagens de vans, ônibus até viagem de avião. Para onde você quer ir? A Centro Operadora te leva!
+      <br>
+      <br>
+      Diversos destinos para você aproveitar, curtir em família, planejar férias e o mais importante: viver o sonho de viver viajando!
+      <br>
+      <br>
+      Não importa a idade, a Centro Operadora te leva!
+      </h5>
+  </div>
+</div>
+  
+  <app-footer style="margin-top: 20px;"></app-footer>
+</div>

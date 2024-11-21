@@ -55,9 +55,13 @@ import { CarrosselHomeResponsive3Component } from './components/carrossel-home-r
 import { FooterComponent } from './components/footer/footer.component';
 import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
 import { Banners_homeComponent } from './banners_home/banners_home.component';
+import { SegurancaComponent } from './seguranca/seguranca.component';
+import { TermosDeUsoComponent } from './termos-de-uso/termos-de-uso.component';
+import { PoliticaDePrivacidadeComponent } from './politica-de-privacidade/politica-de-privacidade.component';
+import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       LoginComponent,
       ViagensComponent,
@@ -97,7 +101,11 @@ import { Banners_homeComponent } from './banners_home/banners_home.component';
       CarrosselHomeResponsive3Component,
       FooterComponent,
       ViagensLpComponent,
-      Banners_homeComponent
+      Banners_homeComponent,
+      SegurancaComponent,
+      TermosDeUsoComponent,
+      PoliticaDePrivacidadeComponent,
+      QuemSomosComponent
    ],
   imports: [
     BrowserModule,

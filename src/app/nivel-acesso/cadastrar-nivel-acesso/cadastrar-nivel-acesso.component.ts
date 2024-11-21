@@ -58,7 +58,7 @@ export class CadastrarNivelAcessoComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/niveis-acesso']);
+    this.router.navigate(['/administrador/niveis-acesso']);
 
   }
 
@@ -74,7 +74,7 @@ export class CadastrarNivelAcessoComponent implements OnInit {
         this.toastr.success('Nível de acesso cadastrado com sucesso!', 'Cadastrar nível de acesso');
 
 
-        this.router.navigate(['/niveis-acesso']);
+        this.router.navigate(['/administrador/niveis-acesso']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');

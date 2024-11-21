@@ -48,11 +48,11 @@ export class HeaderComponent implements OnInit {
         });
 
       } else {
-        window.location.href = "login";
+        window.location.href = "administrador/login";
       }
 
     } else {
-      window.location.href = "login";
+      window.location.href = "administrador/login";
     }
 
   }
@@ -169,12 +169,12 @@ export class HeaderComponent implements OnInit {
 
   verificarRole(){
 
-    this.roleProdutos            = this.dataRole.some((valor: string) => valor === "produtos");
-    this.roleClientes            = this.dataRole.some((valor: string) => valor === "clientes");
-    this.roleConf                = this.dataRole.some((valor: string) => valor === "configuracoes");
-    this.roleEmbarqueDesembarque = this.dataRole.some((valor: string) => valor === "embarque-desembarque");
-    this.roleFornecedores        = this.dataRole.some((valor: string) => valor === "fornecedores");
-    this.roleVendas              = this.dataRole.some((valor: string) => valor === "vendas");
+    this.roleProdutos            = this.dataRole.some((valor: string) => valor === "administrador/produtos");
+    this.roleClientes            = this.dataRole.some((valor: string) => valor === "administrador/clientes");
+    this.roleConf                = this.dataRole.some((valor: string) => valor === "administrador/configuracoes");
+    this.roleEmbarqueDesembarque = this.dataRole.some((valor: string) => valor === "administrador/embarque-desembarque");
+    this.roleFornecedores        = this.dataRole.some((valor: string) => valor === "administrador/fornecedores");
+    this.roleVendas              = this.dataRole.some((valor: string) => valor === "administrador/vendas");
 
   }
 
@@ -184,7 +184,7 @@ export class HeaderComponent implements OnInit {
         localStorage.removeItem('token-adm');
         localStorage.removeItem('nivel-acesso');
         localStorage.removeItem('user');
-        window.location.href = "login";
+        window.location.href = "/administrador/login";
       })
       .catch((error) => {
         console.error('Erro ao deslogar:', error);
