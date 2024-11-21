@@ -83,7 +83,7 @@ export class CadastrarFornecedorComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/fornecedores']);
+    this.router.navigate(['/administrador/fornecedores']);
 
   }
 
@@ -255,7 +255,7 @@ export class CadastrarFornecedorComponent implements OnInit {
         this.toastr.success('Fornecedor cadastrado com sucesso!', 'Cadastrar fornecedor');
 
 
-        this.router.navigate(['/fornecedores']);
+        this.router.navigate(['/administrador/fornecedores']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');

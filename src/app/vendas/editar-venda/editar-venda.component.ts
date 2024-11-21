@@ -92,7 +92,7 @@ export class EditarVendaComponent implements OnInit {
 
           this.toastr.success('Venda editada com sucesso!', 'Editar venda');
 
-         this.router.navigate(['/vendas']);
+         this.router.navigate(['/administrador/vendas']);
         })
         .catch((error) => {
           this.toastr.error(error, 'Erro');
@@ -101,7 +101,7 @@ export class EditarVendaComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/vendas']);
+    this.router.navigate(['/administrador/vendas']);
 
   }
 

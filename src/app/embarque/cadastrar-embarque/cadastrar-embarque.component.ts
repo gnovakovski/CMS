@@ -51,7 +51,7 @@ export class CadastrarEmbarqueComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/embarque-desembarque']);
+    this.router.navigate(['/administrador/embarque-desembarque']);
 
   }
 
@@ -63,7 +63,7 @@ export class CadastrarEmbarqueComponent implements OnInit {
         this.toastr.success('Embarque/Desembarque cadastrado com sucesso!');
 
 
-        this.router.navigate(['/embarque']);
+        this.router.navigate(['/administrador/embarque']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');

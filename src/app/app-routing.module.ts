@@ -26,6 +26,10 @@ import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-d
 import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
 import { EmbarqueComponent } from './embarque/embarque.component';
 import { Banners_homeComponent } from './banners_home/banners_home.component';
+import { QuemSomosComponent } from './quem-somos/quem-somos.component';
+import { TermosDeUsoComponent } from './termos-de-uso/termos-de-uso.component';
+import { PoliticaDePrivacidadeComponent } from './politica-de-privacidade/politica-de-privacidade.component';
+import { SegurancaComponent } from './seguranca/seguranca.component';
 
 const routes: Routes = [
 
@@ -41,57 +45,77 @@ const routes: Routes = [
   },
 
   {
-    path: 'login',
+    path: 'administrador/login',
     component: LoginComponent
   },
 
   {
-    path: 'produtos',
+    path: 'administrador/produtos',
     component: ViagensComponent
   },
 
   {
-    path: 'clientes',
+    path: 'administrador/clientes',
     component: ClientesComponent
   },
 
   {
-    path: 'vendas',
+    path: 'administrador/vendas',
     component: VendasComponent
   },
 
   {
-    path: 'fornecedores',
+    path: 'administrador/fornecedores',
     component: FornecedoresComponent
   },
 
   {
-    path: 'usuarios',
+    path: 'administrador/usuarios',
     component: UsuariosComponent
   },
 
   {
-    path: 'embarque-desembarque',
+    path: 'quem-somos',
+    component: QuemSomosComponent
+  },
+
+  {
+    path: 'termos-de-uso',
+    component: TermosDeUsoComponent
+  },
+
+  {
+    path: 'politica-de-privacidade',
+    component: PoliticaDePrivacidadeComponent
+  },
+
+  {
+    path: 'seguranca',
+    component: SegurancaComponent
+  },
+
+  {
+    path: 'administrador/embarque-desembarque',
     component: EmbarqueComponent
   },
 
   {
-    path: 'banners-home',
+    path: 'administrador/banners-home',
     component: Banners_homeComponent
   },
 
   {
-    path: 'niveis-acesso',
+    path: 'administrador/niveis-acesso',
     component: NivelAcessoComponent
   },
 
   {
-    path: 'niveis-acesso/cadastrar-nivel-acesso',
+    path: 'administrador/niveis-acesso/cadastrar-nivel-acesso',
     component: CadastrarNivelAcessoComponent
   },
 
   {
-    path: 'niveis-acesso/editar-nivel-acesso/:id',
+    path: 'administrador/niveis-acesso/editar-nivel-acesso/:id',
     component: EditarNivelAcessoComponent
   },
 
@@ -101,52 +125,52 @@ const routes: Routes = [
   },
 
   {
-    path: 'usuarios/cadastrar-usuario',
+    path: 'administrador/usuarios/cadastrar-usuario',
     component: CadastrarUsuarioComponent
   },
 
   {
-    path: 'usuarios/editar-usuario/:id',
+    path: 'administrador/usuarios/editar-usuario/:id',
     component: EditarUsuarioComponent
   },
 
   {
-    path: 'fornecedores/cadastrar-fornecedor',
+    path: 'administrador/fornecedores/cadastrar-fornecedor',
     component: CadastrarFornecedorComponent
   },
 
   {
-    path: 'fornecedores/editar-fornecedor/:id',
+    path: 'administrador/fornecedores/editar-fornecedor/:id',
     component: EditarFornecedorComponent
   },
 
   {
-    path: 'vendas/cadastrar-venda',
+    path: 'administrador/vendas/cadastrar-venda',
     component: CadastrarVendaComponent
   },
 
   {
-    path: 'vendas/editar-venda/:id',
+    path: 'administrador/vendas/editar-venda/:id',
     component: EditarVendaComponent
   },
 
   {
-    path: 'clientes/cadastrar-cliente',
+    path: 'administrador/clientes/cadastrar-cliente',
     component: CadastrarClienteComponent
   },
 
   {
-    path: 'clientes/editar-cliente/:id',
+    path: 'administrador/clientes/editar-cliente/:id',
     component: EditarClienteComponent
   },
 
   {
-    path: 'produtos/cadastrar-produto',
+    path: 'administrador/produtos/cadastrar-produto',
     component: CadastrarViagemComponent
   },
 
   {
-    path: 'produtos/editar-produto/:id',
+    path: 'administrador/produtos/editar-produto/:id',
     component: EditarViagemComponent
   },
 
@@ -181,12 +205,12 @@ const routes: Routes = [
   },
 
   {
-    path: 'embarque-desembarque/cadastrar-embarque-desembarque',
+    path: 'administrador/embarque-desembarque/cadastrar-embarque-desembarque',
     component: CadastrarEmbarqueComponent
   },
 
   {
-    path: 'embarque-desembarque/editar-embarque-desembarque/:id',
+    path: 'administrador/embarque-desembarque/editar-embarque-desembarque/:id',
     component: EditarEmbarqueDesembarqueComponent
   },
 

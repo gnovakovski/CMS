@@ -44,12 +44,13 @@
   width: 25px;
 }
 
-.content-links p{
+a{
   font-weight: bold;
   color: black;
   cursor: pointer;
   font-size: 12px;
   text-align: center;
+  text-decoration: none;
 }
 
 @media (max-width: 370px) {

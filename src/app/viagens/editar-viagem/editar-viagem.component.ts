@@ -259,7 +259,7 @@ getFornecedores(){
           this.upload(this.file5, this.form.value.foto5);
         }
 
-        this.router.navigate(['/produtos']);
+        this.router.navigate(['/administrador/produtos']);
        })
        .catch((error) => {
          this.toastr.error(error, 'Erro');
@@ -313,7 +313,7 @@ getFornecedores(){
 
   voltar(){
 
-    this.router.navigate(['/produtos']);
+    this.router.navigate(['/administrador/produtos']);
 
   }
 

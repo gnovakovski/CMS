@@ -4,21 +4,21 @@
   </div>
 
   <nav class="menu">
-    <a *ngIf="roleProdutos" href="/produtos">Produtos</a>
-    <a *ngIf="roleClientes" href="/clientes">Clientes</a>
-    <a *ngIf="roleFornecedores" href="/fornecedores">Fornecedores</a>
-    <a *ngIf="roleVendas" href="/vendas">Vendas</a>
-    <a  *ngIf="roleEmbarqueDesembarque" href="/embarque-desembarque">Embarque/Desembarque</a>
+    <a *ngIf="roleProdutos" href="/administrador/produtos">Produtos</a>
+    <a *ngIf="roleClientes" href="/administrador/clientes">Clientes</a>
+    <a *ngIf="roleFornecedores" href="/administrador/fornecedores">Fornecedores</a>
+    <a *ngIf="roleVendas" href="/administrador/vendas">Vendas</a>
+    <a  *ngIf="roleEmbarqueDesembarque" href="/administrador/embarque-desembarque">Embarque/Desembarque</a>
   </nav>
 
   <div class="settings">
     <i *ngIf="roleConf" class="icon-gear" (click)="aparecerConf()"></i>
     <div style="position: fixed; margin-top: 150px; margin-left: -62px;" *ngIf="boxConf && roleConf">
       <div class="box-conf">
-        <div routerLink="/usuarios" style="cursor: pointer;">
+        <div routerLink="/administrador/usuarios" style="cursor: pointer;">
           Usuários
         </div>
-        <div routerLink="/niveis-acesso" style="cursor: pointer;">
+        <div routerLink="/administrador/niveis-acesso" style="cursor: pointer;">
           Nível de acesso
         </div>
         <div style="cursor: pointer;" (click)="openModal(contatoWhats, 'whats')">
@@ -27,7 +27,7 @@
         <div style="cursor: pointer;" (click)="openModal(contatoInsta, 'insta')">
           Link Instagram
         </div>
-        <a style="cursor: pointer; color: black; text-decoration: none;" href="/banners-home">
+        <a style="cursor: pointer; color: black; text-decoration: none;" href="/administrador/banners-home">
           Banners home
         </a>
       </div>

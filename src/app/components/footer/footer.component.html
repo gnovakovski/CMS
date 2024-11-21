@@ -3,25 +3,19 @@
 </div>
 
 <div class="content-links"  *ngIf="innerWidth > 500">
-  <p>QUEM SOMOS</p>
-  <p>TERMOS DE USO</p>
-  <p>POLÍTICA DE PRIVACIDADE</p>
-  <P>SEGURANÇA</P>
-  <P>DEPOIMENTOS</P>
-  <p>CONTATO</p>
+  <a href="/quem-somos">QUEM SOMOS</a>
+  <a href="/termos-de-uso">TERMOS DE USO</a>
+  <a href="/politica-de-privacidade">POLÍTICA DE PRIVACIDADE</a>
+  <a href="/seguranca">SEGURANÇA</a>
+  <a>CONTATO</a>
 </div>
 
-<div style="display: flex; align-items: center; flex-direction: column;" *ngIf="innerWidth < 501">
-  <div class="content-links">
-    <p>QUEM SOMOS</p>
-    <p>TERMOS DE USO</p>
-    <p>POLÍTICA DE PRIVACIDADE</p>
-  </div>
-  <div class="content-links" >
-    <P>SEGURANÇA</P>
-    <P>DEPOIMENTOS</P>
-    <p>CONTATO</p>
-  </div>
+<div style="display: flex; align-items: center; flex-direction: column; gap: 15px" *ngIf="innerWidth < 501">
+    <a href="/quem-somos">QUEM SOMOS</a>
+    <a href="/termos-de-uso">TERMOS DE USO</a>
+    <a href="/politica-de-privacidade">POLÍTICA DE PRIVACIDADE</a>
+    <a href="/seguranca">SEGURANÇA</a>
+    <a>CONTATO</a>
 </div>
 
 <div class="content-footer">

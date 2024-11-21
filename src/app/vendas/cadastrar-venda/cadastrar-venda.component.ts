@@ -57,7 +57,7 @@ export class CadastrarVendaComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/vendas']);
+    this.router.navigate(['/administrador/vendas']);
 
   }
 
@@ -80,7 +80,7 @@ export class CadastrarVendaComponent implements OnInit {
         this.toastr.success('Venda cadastrada com sucesso!', 'Cadastrar venda');
 
 
-        this.router.navigate(['/vendas']);
+        this.router.navigate(['/administrador/vendas']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');

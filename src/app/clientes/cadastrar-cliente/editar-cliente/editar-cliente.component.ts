@@ -138,7 +138,7 @@ export class EditarClienteComponent implements OnInit {
 
         });
 
-         this.router.navigate(['/clientes']);
+         this.router.navigate(['/administrador/clientes']);
        })
        .catch((error) => {
          this.toastr.error(error, 'Erro');
@@ -162,7 +162,7 @@ export class EditarClienteComponent implements OnInit {
   }
 
   voltar() {
-    this.router.navigate(['/clientes']);
+    this.router.navigate(['/administrador/clientes']);
   }
 
   addDocumento(event: any): void {

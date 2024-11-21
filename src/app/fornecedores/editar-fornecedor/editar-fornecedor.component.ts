@@ -130,7 +130,7 @@ export class EditarFornecedorComponent implements OnInit {
 
   voltar(){
 
-    this.router.navigate(['/fornecedores']);
+    this.router.navigate(['/administrador/fornecedores']);
 
   }
 
@@ -312,7 +312,7 @@ export class EditarFornecedorComponent implements OnInit {
         this.toastr.success('Fornecedor editado com sucesso!', 'Editar fornecedor');
 
 
-        this.router.navigate(['/fornecedores']);
+        this.router.navigate(['/administrador/fornecedores']);
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');

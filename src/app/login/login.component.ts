@@ -45,19 +45,11 @@ export class LoginComponent implements OnInit {
               let tokenAcesso = JSON.stringify(accessToken);
               localStorage.setItem('token-adm', tokenAcesso);
 
-              this.router.navigate(['/produtos']);
+              this.router.navigate(['/administrador/produtos']);
             });
         },
         (error) => {
-          if (error.code === 'auth/wrong-password') {
-            this.toastr.error('Usuário ou senha incorreta. Por favor, tente novamente.', 'Erro');
-          } else if (error.code === 'auth/user-not-found') {
-            this.toastr.error('Usuário não encontrado.', 'Erro');
-          } else if (error.code === 'auth/quota-exceeded') {
-            this.toastr.error('Muitas tentativas de login. Tente novamente mais tarde.', 'Erro');
-          } else {
-            this.toastr.error('Erro ao logar:' + error, 'Erro');
-          }
+          this.toastr.error('Usuário ou senha incorreta. Por favor, tente novamente.', 'Erro');
         },
       );
     }
