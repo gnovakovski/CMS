@@ -6,6 +6,7 @@
 
 .body-viagem {
   display: flex;
+  font-family: "Montserrat", sans-serif;
   align-items: center;
   justify-content: center;
   width: 700px;
@@ -55,8 +56,10 @@
   object-position: center;
 }
 
+
 .banner-text {
   position: absolute;
+  font-family: "Montserrat", sans-serif;
   left: 20%;
   top: 50%;
   transform: translateY(-50%);
@@ -67,6 +70,7 @@
 
 .text-infos {
   display: flex;
+  font-family: "Montserrat", sans-serif;
   align-items: flex-start;
   justify-content: space-between;
   gap: 30px;
