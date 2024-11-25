@@ -22,12 +22,20 @@ export class CarrosselHomeResponsive3Component implements OnInit {
 
   getViagensTipoAereo() {
     this.service.getCollectionData('viagens').subscribe((data) => {
-      const viagensAereas = data.filter((item: any) =>
-        item.tipo_negocio === this.valor && item.carrossel !== false && item.carrossel !== ''
+      let viagensAereas = data.filter((item: any) =>
+        item.carrossel !== false && item.carrossel !== ''
       );
 
       const totalViagens = viagensAereas.length;
       let imagensCarregadas = 0;
+
+      viagensAereas = viagensAereas.sort((a: any, b: any) => {
+
+        const dataIdaA = new Date(a.data_ida);
+        const dataIdaB = new Date(b.data_ida);
+
+        return dataIdaA.getTime() - dataIdaB.getTime();
+      });
 
       this.viagens = viagensAereas.map((item: any) => {
         return {

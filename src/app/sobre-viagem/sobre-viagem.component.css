@@ -15,16 +15,19 @@
   border-radius: 10px;
 }
 
-#carouselExampleIndicators {
-  width: 100%; /* Ajusta a largura do carousel para se alinhar */
-  max-width: 1400px; /* Opcional: limita a largura máxima */
-}
 
 .style-img {
   width: 700px;
   border-radius: 10px;
   height: 500px;
   box-shadow: 4px 5px 17px -4px #3d3d3d;
+}
+
+.content-foto-carousel{
+  gap: 10px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  width: 700px;
 }
 
 .box-valor {
@@ -37,9 +40,12 @@
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: sticky; /* Fixa a div no viewport */
-  top: 60px; /* Espaço do topo ao rolar a página */
-  align-self: flex-start; /* Garante o alinhamento correto no flexbox */
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .banner {
@@ -72,15 +78,8 @@
 .text-infos {
   flex: 2;
   min-width: 300px;
-  padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
-}
-
-.carousel {
-  max-width: 800px;
-  margin: auto;
-  margin-top: 20px;
 }
 
 .button_whats{
@@ -88,13 +87,14 @@
   align-items: center;
   justify-content: center;
   background: #25d366;
-  width: 320px;
+  width: 100%;
   color: white;
   border: none;
   height: 40px;
   border-radius: 10px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .button_whats:hover{
@@ -110,8 +110,8 @@
   height: auto;
   overflow-y: auto;
   background-color: #ffffff;
-  padding: 20px;
   border-radius: 10px;
+  padding-top: 20px;
 }
 
 .banner{
@@ -183,6 +183,10 @@
     height: 300px;
   }
 
+  .content-foto-carousel{
+    width: 500px;
+  }
+
   .body-viagem {
     width: 400px;
   }
@@ -214,6 +218,10 @@
     height: 240px;
   }
 
+  .content-foto-carousel{
+    width: 350px;
+  }
+
   .text-infos {
     width: 440px;
 
@@ -231,7 +239,7 @@
 @media (max-width: 480px) {
 
   .text-infos {
-    width: 380px;
+    width: 480px;
 
   }
 
@@ -244,7 +252,7 @@
 @media (max-width: 410px) {
 
   .text-infos {
-    width: 340px;
+    width: 390px;
 
   }
 
