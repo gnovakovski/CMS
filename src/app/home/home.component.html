@@ -20,18 +20,10 @@
     <h1>VIAGENS</h1>
   </div>
 
-  <div *ngIf="innerWidth > 1452">
+  <div>
     <app-carrossel-home [valor]="'Aéreo'"></app-carrossel-home >
   </div>
-  <div *ngIf="innerWidth < 1453 && innerWidth > 995">
-    <app-carrossel-home-responsive1 [valor]="'Aéreo'"></app-carrossel-home-responsive1>
-  </div>
-  <div *ngIf="innerWidth < 996 && innerWidth > 775">
-    <app-carrossel-home-responsive2 [valor]="'Aéreo'"></app-carrossel-home-responsive2>
-  </div>
-  <div *ngIf="innerWidth < 776">
-    <app-carrossel-home-responsive3 [valor]="'Aéreo'"></app-carrossel-home-responsive3>
-  </div>
+
 
   <app-footer></app-footer>
 
