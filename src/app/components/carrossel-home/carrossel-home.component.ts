@@ -34,12 +34,22 @@ export class CarrosselHomeComponent implements OnInit {
 
   getViagensTipoAereo() {
     this.service.getCollectionData('viagens').subscribe((data) => {
-      const viagensAereas = data.filter((item: any) =>
-        item.tipo_negocio === this.valor && item.carrossel !== false && item.carrossel !== ''
+      let viagensAereas = data.filter((item: any) =>
+        item.carrossel !== false && item.carrossel !== ''
       );
 
       const totalViagens = viagensAereas.length;
       let imagensCarregadas = 0;
+
+      // Ordenando as viagens por data mais próxima
+      viagensAereas = viagensAereas.sort((a: any, b: any) => {
+        // Convertendo data_ida para objeto Date, caso seja string ou outro formato
+        const dataIdaA = new Date(a.data_ida);
+        const dataIdaB = new Date(b.data_ida);
+
+        // Comparando as datas
+        return dataIdaA.getTime() - dataIdaB.getTime();
+      });
 
       this.viagens = viagensAereas.map((item: any) => {
         return {

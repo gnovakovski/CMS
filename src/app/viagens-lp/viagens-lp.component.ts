@@ -43,16 +43,23 @@ export class ViagensLpComponent implements OnInit {
     }
   }
 
-  getViagemPorTipoNegocio(tipo: any){
-
+  getViagemPorTipoNegocio(tipo: any) {
     this.service.getViagemPorTipoNegocio(tipo).subscribe((data) => {
 
-      this.text = tipo
-
+      this.text = tipo;
       this.viagem = data;
 
-      console.log(this.viagem)
+      // Ordenando as viagens por data mais próxima
+      this.viagem = this.viagem.sort((a: any, b: any) => {
+        // Convertendo data_ida para objeto Date, caso seja string ou outro formato
+        const dataIdaA = new Date(a.data_ida);
+        const dataIdaB = new Date(b.data_ida);
 
+        // Comparando as datas
+        return dataIdaA.getTime() - dataIdaB.getTime();
+      });
+
+      // Adicionando o campo foto
       this.viagem = this.viagem.map((item: any) => {
         return {
           ...item,
@@ -60,6 +67,7 @@ export class ViagensLpComponent implements OnInit {
         };
       });
 
+      // Buscando a URL da foto para cada viagem
       this.viagem.forEach((item: any) => {
         this.service.getImageUrl(item.foto1).subscribe((url) => {
           item.foto = url;
@@ -67,9 +75,6 @@ export class ViagensLpComponent implements OnInit {
       });
 
     });
-
   }
-
-
 
 }

@@ -37,16 +37,20 @@ export class ClientesComponent implements OnInit {
 
       this.clienteById = data;
 
-      this.clienteById.documentos.forEach((item: any) => {
+      if(this.clienteById.documentos){
+        this.clienteById.documentos.forEach((item: any) => {
 
-        this.service.removerFoto(item)
-          .then(() => {
-            console.log('Foto removida com sucesso!');
-          })
-          .catch(error => {
-          });
+          if(item){
+            this.service.removerFoto(item)
+            .then(() => {
+              console.log('Foto removida com sucesso!');
+            })
+            .catch(error => {
+            });
+          }
 
-      })
+        })
+      }
 
       this.service.delete(id, "clientes")
       .then((resp) => {
